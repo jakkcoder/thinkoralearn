@@ -192,3 +192,21 @@ section h2{font-size:1.9rem;margin:0 0 1rem;text-align:center}
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* containers */
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
+h2 { margin-bottom: 1rem; }
+
+/* videos */
+.video-carousel { overflow-x: auto; }
+.video-track { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; }
+
+/* courses */
+.course-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.course a { display: block; text-decoration: none; color: inherit; border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: transform .15s ease, box-shadow .15s ease; }
+.course a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+.course img { width: 100%; display: block; }
+.course h3 { font-size: 1rem; padding: .75rem 1rem 1rem; line-height: 1.3; }
+.more-courses { margin-top: 1rem; }
+.more-courses a { color: #0a66c2; }

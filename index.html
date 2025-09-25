@@ -100,8 +100,9 @@
     </details>
   </section>
 
-  <!-- 🔹 Import Videos Section -->
-  <div id="video-section"></div>
+  <!-- 🔹 Components mount points -->
+  <div id="video-section" class="container"></div>
+  <div id="udemy-section" class="container"></div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -144,14 +145,18 @@
   </div>
 
   <!-- Scripts -->
+  <!-- Keep your existing JS (modal/year etc.) -->
   <script src="js/main.js" defer></script>
-  <script>
-    // 🔹 Import videos.html into placeholder
-    fetch("components/videos.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("video-section").innerHTML = data;
-      });
+
+  <!-- 🔹 New: lightweight ES-module to render components -->
+  <script type="module">
+    import { videos } from './data/videos.js';
+    import { instructor, courses } from './data/courses.js';
+    import { renderVideoCarousel } from './components/videoCarousel.js';
+    import { renderUdemySection } from './components/udemyCourses.js';
+
+    renderVideoCarousel(document.getElementById('video-section'), videos);
+    renderUdemySection(document.getElementById('udemy-section'), instructor, courses);
   </script>
 </body>
 </html>
