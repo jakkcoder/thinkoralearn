@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThinkoraLearn – Learn. Build. Grow.</title>
+  <style>
+    :root {
+      --brand: #2563eb;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --muted: #475569;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; line-height: 1.6; color: var(--dark); background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e5e7eb; z-index: 50; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem; max-width: 1100px; margin: auto; }
+    .brand { font-size: 1.3rem; font-weight: 700; color: var(--brand); }
+    .menu { display: flex; gap: 1rem; }
+    .menu a { font-weight: 500; color: var(--dark); }
+    .btn { padding: 0.6rem 1rem; border-radius: .5rem; font-weight: 600; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-outline { border: 1px solid var(--brand); color: var(--brand); }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; padding: 3rem 1rem; max-width: 1100px; margin: auto; }
+    .hero img { width: 100%; border-radius: 1rem; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero p { margin-bottom: 1.5rem; color: var(--muted); }
+
+    /* Sections */
+    section { padding: 3rem 1rem; max-width: 1100px; margin: auto; }
+    section h2 { font-size: 1.8rem; margin-bottom: 1.2rem; text-align: center; }
+
+    /* About */
+    .about p { text-align: center; max-width: 700px; margin: auto; color: var(--muted); }
+
+    /* Courses */
+    .grid { display: grid; gap: 1rem; }
+    .courses .grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card { border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 1rem; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+    .card h3 { margin-bottom: 0.5rem; }
+
+    /* Testimonials */
+    .testimonials blockquote { border-left: 4px solid var(--brand); padding-left: 1rem; margin-bottom: 1rem; color: var(--muted); }
+
+    /* Logos */
+    .brands { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 1.5rem; justify-items: center; align-items: center; }
+    .brands img { max-height: 40px; filter: grayscale(1); opacity: .8; }
+
+    /* FAQ */
+    .faq details { margin-bottom: 1rem; border: 1px solid #e5e7eb; padding: .8rem; border-radius: .5rem; }
+    .faq summary { cursor: pointer; font-weight: 600; }
+
+    /* Contact */
+    form { display: grid; gap: 1rem; max-width: 600px; margin: auto; }
+    form input, form textarea { width: 100%; padding: .75rem; border: 1px solid #e5e7eb; border-radius: .5rem; }
+    form button { width: fit-content; }
+
+    /* Footer */
+    footer { background: var(--dark); color: #cbd5e1; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    footer a { color: #fff; }
+    
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero img { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="nav">
+      <div class="brand">ThinkoraLearn</div>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#placements">Placements</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1>Learn Skills. Build Projects. Get Hired.</h1>
+      <p>Practical online training in Data Science, Web Development, and more – guided by an industry professional.</p>
+      <a href="#courses" class="btn btn-primary">Explore Courses</a>
+      <a href="#contact" class="btn btn-outline">Free Counselling →</a>
+    </div>
+    <img src="https://source.unsplash.com/600x400/?coding,learning" alt="Students learning online">
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About ThinkoraLearn</h2>
+    <p>ThinkoraLearn is an online teaching platform dedicated to helping learners acquire job-ready skills through project-based learning, mentorship, and placement guidance.</p>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="courses">
+    <h2>Our Popular Courses</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Data Science Pro</h3>
+        <p>Python, SQL, Machine Learning, and real-world projects to kickstart your career.</p>
+      </div>
+      <div class="card">
+        <h3>Full-Stack Web Development</h3>
+        <p>HTML, CSS, JavaScript, React, APIs, and deployment – learn by building apps.</p>
+      </div>
+      <div class="card">
+        <h3>AI & Generative Models</h3>
+        <p>Deep dive into NLP, Transformers, and Generative AI with hands-on labs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Learners Say</h2>
+    <blockquote>“I got placed within 3 months after finishing the Data Science Pro course. The projects really helped me in interviews.” – A. Sharma</blockquote>
+    <blockquote>“Best online teaching experience! The mentor explains complex topics in such a simple way.” – R. Singh</blockquote>
+  </section>
+
+  <!-- Placements -->
+  <section id="placements">
+    <h2>Our Learners Work At</h2>
+    <div class="brands">
+      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Google" alt="Google">
+      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Amazon" alt="Amazon">
+      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Microsoft" alt="Microsoft">
+      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Infosys" alt="Infosys">
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Are the courses live or recorded?</summary>
+      <p>We offer a blend of live interactive sessions and recorded content for flexibility.</p>
+    </details>
+    <details>
+      <summary>Do you provide placement support?</summary>
+      <p>Yes, we provide resume reviews, mock interviews, and referrals through our network.</p>
+    </details>
+    <details>
+      <summary>Can beginners join?</summary>
+      <p>Absolutely! Our courses are structured from beginner to advanced levels.</p>
+    </details>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mexample" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> ThinkoraLearn. All rights reserved.</p>
+    <p><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
