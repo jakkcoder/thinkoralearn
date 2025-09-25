@@ -14,9 +14,11 @@
       <a class="brand" href="/">ThinkoraLearn</a>
       <nav class="menu">
         <a href="#about">About</a>
-        <a href="#courses">Courses</a>
+  <a href="courses/index.html">Courses</a>
         <a href="#placements">Placements</a>
         <a href="#faq">FAQ</a>
+        <a href="#" id="openLogin" class="btn">Login</a>
+        <a href="#" id="openRegister" class="btn">Register</a>
         <a href="#" id="openConsult" class="btn btn-primary">Contact</a>
       </nav>
     </div>
@@ -28,7 +30,7 @@
       <h1>Learn Skills. Build Projects. Get Hired.</h1>
       <p>Practical online training in Data Science, Web Development, and AI — guided by an industry professional.</p>
       <div class="hero__cta">
-        <a href="#courses" class="btn btn-primary">Explore Courses</a>
+  <a href="courses/index.html" class="btn btn-primary">Explore Courses</a>
         <a href="#" id="openConsultHero" class="btn btn-outline">Free Counselling →</a>
       </div>
     </div>
@@ -44,6 +46,20 @@
   <!-- Courses -->
   <section id="courses" class="courses container">
     <h2>Our Popular Courses</h2>
+    <div class="course-thumbs" style="display:flex;gap:1rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap;">
+      <button class="course-enquire" data-course="Statistics" style="border:0;background:none;cursor:pointer;">
+        <img src="assets/course_logo/stat.png" alt="Statistics" style="height:64px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);">
+      </button>
+      <button class="course-enquire" data-course="Python Basics" style="border:0;background:none;cursor:pointer;">
+        <img src="assets/course_logo/python_basics_thumbnil.png" alt="Python Basics" style="height:64px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);">
+      </button>
+      <button class="course-enquire" data-course="AWS" style="border:0;background:none;cursor:pointer;">
+        <img src="assets/course_logo/aws.png" alt="AWS" style="height:64px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);">
+      </button>
+      <button class="course-enquire" data-course="SQL" style="border:0;background:none;cursor:pointer;">
+        <img src="assets/course_logo/sql.png" alt="SQL" style="height:64px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);">
+      </button>
+    </div>
     <div class="grid cards">
       <article class="card">
         <h3>Data Science Pro</h3>
@@ -131,11 +147,40 @@
   </footer>
 
   <!-- Counselling Modal -->
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" aria-label="Close">×</button>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" aria-label="Close">×</button>
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+    </div>
+  </div>
+
   <div id="consultModal" class="modal">
     <div class="modal-content">
       <button class="close-btn" aria-label="Close">×</button>
       <h2>Request Free Counselling</h2>
-      <form action="https://formspree.io/f/mexample" method="POST">
+      <div id="selectedCourseText" style="margin-bottom:.5rem;color:var(--muted);"></div>
+      <form id="consultForm" action="https://formspree.io/f/mexample" method="POST">
+        <input type="hidden" name="course" id="consultCourseField" value="">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="4" placeholder="Tell us about your goals..." required></textarea>

@@ -21,7 +21,8 @@ export function renderVideoCarousel(mountEl, videoUrls) {
 
   const section = document.createElement("section");
   section.id = "videos";
-  section.className = "container";
+  // render as full-bleed section so carousel can span edge-to-edge
+  section.className = "video-full";
 
   section.innerHTML = `
     <h2>Featured Videos</h2>
@@ -46,6 +47,11 @@ export function renderVideoCarousel(mountEl, videoUrls) {
     `;
     track.appendChild(videoDiv);
   });
+
+  // Duplicate track children to allow seamless scrolling animation
+  // (we'll append a clone of the current items so the translateX(-50%) moves into the cloned set)
+  const items = Array.from(track.children).map(node => node.cloneNode(true));
+  items.forEach(n => track.appendChild(n));
 
   mountEl.replaceChildren(section);
 }
