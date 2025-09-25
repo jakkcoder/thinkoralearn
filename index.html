@@ -100,6 +100,9 @@
     </details>
   </section>
 
+  <!-- 🔹 Import Videos Section -->
+  <div id="video-section"></div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer__grid">
@@ -140,6 +143,15 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="js/main.js" defer></script>
+  <script>
+    // 🔹 Import videos.html into placeholder
+    fetch("components/videos.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("video-section").innerHTML = data;
+      });
+  </script>
 </body>
 </html>

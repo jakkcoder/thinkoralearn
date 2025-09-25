@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Courses – ThinkoraLearn</title>
-  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="../index.html">ThinkoraLearn</a>
-</header>
+  <header>
+    <div class="nav">
+      <a class="brand" href="../index.html">ThinkoraLearn</a>
+      <nav class="menu">
+        <a href="../about.html">About</a>
+        <a href="index.html">Courses</a>
+        <a href="../placements.html">Placements</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="#" id="openConsult" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section>
-  <h2>Our Courses</h2>
-  <div class="grid">
-    <a class="card" href="data-science.html"><h3>Data Science Pro</h3><p>Python, SQL, ML projects</p></a>
-    <a class="card" href="web-development.html"><h3>Full-Stack Web Dev</h3><p>Frontend + Backend projects</p></a>
-  </div>
-</section>
+  <section class="container">
+    <h2>All Courses</h2>
+    <div class="grid cards">
+      <a class="card" href="data-science.html">
+        <h3>Data Science Pro</h3>
+        <p>Python, SQL, ML, EDA, evaluation, and 3 real projects.</p>
+        <div class="pill">Placement Guidance</div>
+      </a>
+      <a class="card" href="web-development.html">
+        <h3>Full-Stack Web Development</h3>
+        <p>HTML/CSS/JS → React, APIs, Node, DB, deployment.</p>
+        <div class="pill">Project-Heavy</div>
+      </a>
+      <!-- Add more course pages later and link them here -->
+    </div>
+  </section>
 
-<footer>
-  <p>© <span id="year"></span> ThinkoraLearn</p>
-</footer>
-<script src="../js/main.js"></script>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div><h4>ThinkoraLearn</h4><p>Practical training with real projects and mentorship.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Courses</a></li><li><a href="../placements.html">Placements</a></li><li><a href="../faq.html">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></li><li><a href="#" id="openConsultFooter">Free Counselling</a></li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> ThinkoraLearn</div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
 </body>
 </html>

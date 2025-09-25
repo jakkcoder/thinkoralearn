@@ -160,3 +160,35 @@ section h2{font-size:1.9rem;margin:0 0 1rem;text-align:center}
   .hero__img{order:-1}
   .hero__content{margin:0 auto}
 }
+
+.video-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.video-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollVideos 40s linear infinite;
+}
+
+.video {
+  flex: 0 0 350px;
+  height: 200px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes scrollVideos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
