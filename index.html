@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ThinkoraLearn – Learn. Build. Grow.</title>
   <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Project-based online training in Data Science, Web Development, and AI with mentorship and placement guidance."/>
 </head>
 <body>
   <!-- Navbar -->
   <header>
     <div class="nav">
-      <div class="brand">ThinkoraLearn</div>
+      <a class="brand" href="/">ThinkoraLearn</a>
       <nav class="menu">
         <a href="#about">About</a>
         <a href="#courses">Courses</a>
@@ -21,93 +22,120 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (dynamic background) -->
   <section class="hero">
-    <div>
+    <div class="hero__content">
       <h1>Learn Skills. Build Projects. Get Hired.</h1>
-      <p>Practical online training in Data Science, Web Development, and more – guided by an industry professional.</p>
-      <a href="#courses" class="btn btn-primary">Explore Courses</a>
-      <a href="#" id="openConsultHero" class="btn btn-outline">Free Counselling →</a>
+      <p>Practical online training in Data Science, Web Development, and AI — guided by an industry professional.</p>
+      <div class="hero__cta">
+        <a href="#courses" class="btn btn-primary">Explore Courses</a>
+        <a href="#" id="openConsultHero" class="btn btn-outline">Free Counselling →</a>
+      </div>
     </div>
-    <img src="assets/hero.jpg" alt="Students learning online">
+    <img class="hero__img" src="assets/hero.jpg" alt="Students learning online">
   </section>
 
   <!-- About -->
-  <section id="about" class="about">
+  <section id="about" class="about container">
     <h2>About ThinkoraLearn</h2>
-    <p>ThinkoraLearn is an online teaching platform dedicated to helping learners acquire job-ready skills through project-based learning, mentorship, and placement guidance.</p>
+    <p>ThinkoraLearn focuses on job-ready learning through simple explanations, project-based practice, regular feedback, and interview preparation. Learn at your pace with live support when you need it.</p>
   </section>
 
   <!-- Courses -->
-  <section id="courses" class="courses">
+  <section id="courses" class="courses container">
     <h2>Our Popular Courses</h2>
-    <div class="grid">
-      <div class="card">
+    <div class="grid cards">
+      <article class="card">
         <h3>Data Science Pro</h3>
-        <p>Python, SQL, Machine Learning, and real-world projects to kickstart your career.</p>
-      </div>
-      <div class="card">
+        <p>Python, SQL, ML, EDA, model evaluation, and 3 portfolio projects.</p>
+        <div class="pill">Placement Guidance</div>
+      </article>
+      <article class="card">
         <h3>Full-Stack Web Development</h3>
-        <p>HTML, CSS, JavaScript, React, APIs, and deployment – learn by building apps.</p>
-      </div>
-      <div class="card">
+        <p>HTML/CSS/JS → React, APIs, auth, deployment. Build real apps.</p>
+        <div class="pill">Project-Heavy</div>
+      </article>
+      <article class="card">
         <h3>AI & Generative Models</h3>
-        <p>Deep dive into NLP, Transformers, and Generative AI with hands-on labs.</p>
-      </div>
+        <p>Transformers, prompt engineering, and hands-on labs with GenAI.</p>
+        <div class="pill">Advanced</div>
+      </article>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section class="testimonials">
+  <section class="testimonials container">
     <h2>What Learners Say</h2>
-    <blockquote>“I got placed within 3 months after finishing the Data Science Pro course. The projects really helped me in interviews.” – A. Sharma</blockquote>
-    <blockquote>“Best online teaching experience! The mentor explains complex topics in such a simple way.” – R. Singh</blockquote>
+    <div class="quotes">
+      <blockquote>“Landed my first DS role in 3 months. The projects and feedback were game-changers.” <span>— A. Sharma</span></blockquote>
+      <blockquote>“Super clear teaching. Complex topics finally made sense.” <span>— R. Singh</span></blockquote>
+    </div>
   </section>
 
   <!-- Placements -->
-  <section id="placements">
+  <section id="placements" class="placements container">
     <h2>Our Learners Work At</h2>
     <div class="brands">
-      <img src="assets/brands/brand1.svg" alt="Google">
-      <img src="assets/brands/brand2.svg" alt="Amazon">
-      <img src="assets/brands/brand3.svg" alt="Microsoft">
-      <img src="assets/brands/brand4.svg" alt="Infosys">
+      <img src="assets/brands/brand1.svg" alt="Brand 1">
+      <img src="assets/brands/brand2.svg" alt="Brand 2">
+      <img src="assets/brands/brand3.svg" alt="Brand 3">
+      <img src="assets/brands/brand4.svg" alt="Brand 4">
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="faq">
+  <section id="faq" class="faq container">
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Are the courses live or recorded?</summary>
-      <p>We offer a blend of live interactive sessions and recorded content for flexibility.</p>
+      <p>We use a blend of live sessions and structured recorded content for flexibility.</p>
     </details>
     <details>
       <summary>Do you provide placement support?</summary>
-      <p>Yes, we provide resume reviews, mock interviews, and referrals through our network.</p>
+      <p>Yes — resume reviews, mock interviews, referral guidance, and project polishing.</p>
     </details>
     <details>
       <summary>Can beginners join?</summary>
-      <p>Absolutely! Our courses are structured from beginner to advanced levels.</p>
+      <p>Absolutely. We start from basics and gradually move to advanced topics with practice.</p>
     </details>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© <span id="year"></span> ThinkoraLearn. All rights reserved.</p>
-    <p><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></p>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h4>ThinkoraLearn</h4>
+        <p>Practical training with mentorship and real projects to build your career.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#placements">Placements</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></li>
+          <li><a href="#" id="openConsultFooter">Free Counselling</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> ThinkoraLearn • All rights reserved.</div>
   </footer>
 
-  <!-- Modal -->
+  <!-- Counselling Modal -->
   <div id="consultModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn">&times;</span>
+      <button class="close-btn" aria-label="Close">×</button>
       <h2>Request Free Counselling</h2>
       <form action="https://formspree.io/f/mexample" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="4" placeholder="Tell us about your goals..." required></textarea>
-        <button type="submit" class="btn btn-primary">Submit Request</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
