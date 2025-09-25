@@ -4,69 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ThinkoraLearn – Learn. Build. Grow.</title>
-  <style>
-    :root {
-      --brand: #2563eb;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --muted: #475569;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, sans-serif; line-height: 1.6; color: var(--dark); background: #fff; }
-    a { text-decoration: none; color: inherit; }
-    header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e5e7eb; z-index: 50; }
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem; max-width: 1100px; margin: auto; }
-    .brand { font-size: 1.3rem; font-weight: 700; color: var(--brand); }
-    .menu { display: flex; gap: 1rem; }
-    .menu a { font-weight: 500; color: var(--dark); }
-    .btn { padding: 0.6rem 1rem; border-radius: .5rem; font-weight: 600; }
-    .btn-primary { background: var(--brand); color: #fff; }
-    .btn-outline { border: 1px solid var(--brand); color: var(--brand); }
-
-    /* Hero */
-    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; padding: 3rem 1rem; max-width: 1100px; margin: auto; }
-    .hero img { width: 100%; border-radius: 1rem; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-    .hero p { margin-bottom: 1.5rem; color: var(--muted); }
-
-    /* Sections */
-    section { padding: 3rem 1rem; max-width: 1100px; margin: auto; }
-    section h2 { font-size: 1.8rem; margin-bottom: 1.2rem; text-align: center; }
-
-    /* About */
-    .about p { text-align: center; max-width: 700px; margin: auto; color: var(--muted); }
-
-    /* Courses */
-    .grid { display: grid; gap: 1rem; }
-    .courses .grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .card { border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 1rem; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
-    .card h3 { margin-bottom: 0.5rem; }
-
-    /* Testimonials */
-    .testimonials blockquote { border-left: 4px solid var(--brand); padding-left: 1rem; margin-bottom: 1rem; color: var(--muted); }
-
-    /* Logos */
-    .brands { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 1.5rem; justify-items: center; align-items: center; }
-    .brands img { max-height: 40px; filter: grayscale(1); opacity: .8; }
-
-    /* FAQ */
-    .faq details { margin-bottom: 1rem; border: 1px solid #e5e7eb; padding: .8rem; border-radius: .5rem; }
-    .faq summary { cursor: pointer; font-weight: 600; }
-
-    /* Contact */
-    form { display: grid; gap: 1rem; max-width: 600px; margin: auto; }
-    form input, form textarea { width: 100%; padding: .75rem; border: 1px solid #e5e7eb; border-radius: .5rem; }
-    form button { width: fit-content; }
-
-    /* Footer */
-    footer { background: var(--dark); color: #cbd5e1; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
-    footer a { color: #fff; }
-    
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero img { order: -1; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -78,7 +16,7 @@
         <a href="#courses">Courses</a>
         <a href="#placements">Placements</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-primary">Contact</a>
+        <a href="#" id="openConsult" class="btn btn-primary">Contact</a>
       </nav>
     </div>
   </header>
@@ -89,7 +27,7 @@
       <h1>Learn Skills. Build Projects. Get Hired.</h1>
       <p>Practical online training in Data Science, Web Development, and more – guided by an industry professional.</p>
       <a href="#courses" class="btn btn-primary">Explore Courses</a>
-      <a href="#contact" class="btn btn-outline">Free Counselling →</a>
+      <a href="#" id="openConsultHero" class="btn btn-outline">Free Counselling →</a>
     </div>
     <img src="assets/hero.jpg" alt="Students learning online">
   </section>
@@ -130,10 +68,10 @@
   <section id="placements">
     <h2>Our Learners Work At</h2>
     <div class="brands">
-      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Google" alt="Google">
-      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Amazon" alt="Amazon">
-      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Microsoft" alt="Microsoft">
-      <img src="https://dummyimage.com/120x40/ccc/000.png&text=Infosys" alt="Infosys">
+      <img src="assets/brands/brand1.svg" alt="Google">
+      <img src="assets/brands/brand2.svg" alt="Amazon">
+      <img src="assets/brands/brand3.svg" alt="Microsoft">
+      <img src="assets/brands/brand4.svg" alt="Infosys">
     </div>
   </section>
 
@@ -154,22 +92,25 @@
     </details>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mexample" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-  </section>
-
   <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> ThinkoraLearn. All rights reserved.</p>
     <p><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></p>
   </footer>
+
+  <!-- Modal -->
+  <div id="consultModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Request Free Counselling</h2>
+      <form action="https://formspree.io/f/mexample" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Tell us about your goals..." required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
