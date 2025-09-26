@@ -57,7 +57,9 @@
 
     <div class="course-logos" aria-hidden="true" style="margin-top:1.25rem;">
       <img data-caption="Python" src="/assets/course_logo/data_analyst_champ/Python.svg" alt="Python" />
+      <img data-caption="NumPy" src="/assets/course_logo/data_analyst_champ/NumPy.svg" alt="NumPy" />
       <img data-caption="Pandas" src="/assets/course_logo/data_analyst_champ/Pandas.svg" alt="Pandas" />
+      <img data-caption="Jupyter" src="/assets/course_logo/data_analyst_champ/Jupyter.svg" alt="Jupyter" />
       <img data-caption="Matplotlib" src="/assets/course_logo/data_analyst_champ/Matplotlib.svg" alt="Matplotlib" />
       <img data-caption="Scikit-Learn" src="/assets/course_logo/data_analyst_champ/scikit-learn.svg" alt="scikit-learn" />
       <img data-caption="SQL" src="/assets/course_logo/data_analyst_champ/sql-server.png" alt="SQL" />
@@ -77,7 +79,9 @@
   <div class="logo-spider container" aria-hidden="true">
     <div class="spider-center">Data Analyst</div>
     <div class="spider-node node-python"><img src="/assets/course_logo/data_analyst_champ/Python.svg" alt="Python"></div>
+      <div class="spider-node node-numpy"><img src="/assets/course_logo/data_analyst_champ/NumPy.svg" alt="NumPy"></div>
     <div class="spider-node node-pandas"><img src="/assets/course_logo/data_analyst_champ/Pandas.svg" alt="Pandas"></div>
+      <div class="spider-node node-jupyter"><img src="/assets/course_logo/data_analyst_champ/Jupyter.svg" alt="Jupyter"></div>
     <div class="spider-node node-mpl"><img src="/assets/course_logo/data_analyst_champ/Matplotlib.svg" alt="Matplotlib"></div>
     <div class="spider-node node-sk"><img src="/assets/course_logo/data_analyst_champ/scikit-learn.svg" alt="Scikit-Learn"></div>
     <div class="spider-node node-sql"><img src="/assets/course_logo/data_analyst_champ/sql-server.png" alt="SQL"></div>
@@ -124,6 +128,8 @@
       figure.appendChild(caption);
       // special case: python filename -> make larger
       if(/python/i.test(name)) img.classList.add('logo-python');
+      // make NumPy slightly prominent too
+      if(/numpy/i.test(name)) img.classList.add('logo-numpy');
     });
   })();
 </script>
@@ -140,6 +146,8 @@
 .logo-spider .node-sk{left:78%;top:72%}
 .logo-spider .node-sql{left:50%;top:6%}
 .logo-spider .node-tableau{left:50%;top:90%}
+.logo-spider .node-numpy{left:24%;top:6%}
+.logo-spider .node-jupyter{left:76%;top:6%}
 /* lines (CSS-only) */
 .logo-spider .spider-node::before{content:"";position:absolute;left:50%;top:50%;width:2px;height:calc(100% + 40px);background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));transform-origin:top center;}
 .logo-spider .spider-node{--dx:0;--dy:0}
