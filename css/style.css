@@ -222,8 +222,9 @@ section h2{font-size:1.9rem;margin:0 0 1rem;text-align:center}
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding: 2.5rem 1rem;
-  background: linear-gradient(90deg, rgba(37,99,235,0.04), rgba(99,102,241,0.03));
+  padding: 3.25rem 1rem 3.5rem;
+  background: linear-gradient(90deg,#0b1220 0%, #071127 40%, #071127 100%);
+  color: #e6eef8; /* light text for contrast */
 }
 
 .video-carousel {
@@ -246,7 +247,7 @@ section h2{font-size:1.9rem;margin:0 0 1rem;text-align:center}
   flex: 0 0 360px;
   min-width: 360px;
   height: 210px;
-  background: #000;
+  background: #07070a;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.18);
