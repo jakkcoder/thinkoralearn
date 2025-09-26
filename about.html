@@ -9,14 +9,26 @@
 <body>
   <header>
     <div class="nav">
-      <a class="brand" href="index.html">ThinkoraLearn</a>
+      <a class="brand" href="/index.html">ThinkoraLearn</a>
       <nav class="menu">
-        <a href="/index.html">Home</a>
-        <a href="/courses/index.html">Courses</a>
-        <a href="/about.html">About</a>
-        <a href="/blog/index.html">Blog</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/contact.html" class="btn btn-primary">Contact</a>
+        <div class="nav-item"><a href="/index.html">Home</a></div>
+        <div class="nav-item dropdown">
+          <a href="/courses/index.html">Courses</a>
+          <div class="dropdown-menu">
+            <a href="/courses/data-analyst.html">Data Analyst Champion</a>
+            <a href="/courses/web-development.html">Full-Stack Web Development</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="/about.html">About</a>
+          <div class="dropdown-menu">
+            <a href="/about.html">Our Story</a>
+            <a href="/locations/index.html">Locations</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/blog/index.html">Blog</a></div>
+        <div class="nav-item"><a href="/faq.html">FAQ</a></div>
+        <div class="nav-item"><a href="/contact.html" class="btn btn-primary">Contact</a></div>
       </nav>
     </div>
   </header>

@@ -61,6 +61,16 @@ header::before{
 
 /* accessible focus */
 .menu a:focus-visible{outline:3px solid rgba(255,255,255,0.18);outline-offset:3px}
+
+/* dropdown structure */
+.nav-item{position:relative}
+.dropdown-menu{display:none;position:absolute;left:0;top:calc(100% + 8px);min-width:220px;background:#fff;color:#0b1220;border-radius:8px;padding:.5rem;border:1px solid rgba(11,18,32,0.06);box-shadow:0 12px 30px rgba(2,6,23,0.08);z-index:60}
+.dropdown-menu a{display:block;padding:.6rem .75rem;color:var(--ink);font-weight:600;border-radius:.5rem}
+.dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+.dropdown-menu a:hover{background:linear-gradient(90deg, rgba(37,99,235,0.06), rgba(99,102,241,0.04))}
+
+/* ensure the dropdown sits above the header gradient */
+header::before{z-index:-1}
 .brand{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,0.25)}
 .menu a{font-weight:600}
 .btn{display:inline-block;padding:.6rem 1rem;border-radius:.7rem;border:1px solid var(--shade);background:#eef2ff;color:#111827;font-weight:700;transition:transform .2s ease, filter .2s ease}
