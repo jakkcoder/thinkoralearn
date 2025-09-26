@@ -135,29 +135,39 @@
 </script>
 
 <style>
-/* Spider diagram for logos */
-.logo-spider{position:relative;height:260px;margin-top:1.25rem}
-.logo-spider .spider-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:#071127;padding:.75rem 1rem;border-radius:999px;font-weight:800;box-shadow:0 12px 40px rgba(2,6,23,0.12)}
-.logo-spider .spider-node{position:absolute;width:72px;height:72px;display:flex;align-items:center;justify-content:center}
-.logo-spider .spider-node img{max-width:60px;max-height:60px}
-.logo-spider .node-python{left:12%;top:20%}
-.logo-spider .node-pandas{left:78%;top:20%}
-.logo-spider .node-mpl{left:8%;top:72%}
-.logo-spider .node-sk{left:78%;top:72%}
-.logo-spider .node-sql{left:50%;top:6%}
-.logo-spider .node-tableau{left:50%;top:90%}
-.logo-spider .node-numpy{left:24%;top:6%}
-.logo-spider .node-jupyter{left:76%;top:6%}
-/* lines (CSS-only) */
-.logo-spider .spider-node::before{content:"";position:absolute;left:50%;top:50%;width:2px;height:calc(100% + 40px);background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));transform-origin:top center;}
-.logo-spider .spider-node{--dx:0;--dy:0}
+/* Spider diagram for logos - improved, responsive */
+.logo-spider{position:relative;height:320px;margin-top:1.25rem;width:100%;overflow:visible}
+.logo-spider .spider-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:#071127;padding:.75rem 1rem;border-radius:999px;font-weight:800;box-shadow:0 14px 44px rgba(2,6,23,0.14);z-index:30}
+.logo-spider .spider-node{position:absolute;width:92px;height:92px;display:flex;align-items:center;justify-content:center;z-index:25}
+.logo-spider .spider-node img{max-width:78px;max-height:78px}
+.logo-spider .node-python{left:4%;top:16%}
+.logo-spider .node-numpy{left:22%;top:6%}
+.logo-spider .node-pandas{left:76%;top:16%}
+.logo-spider .node-jupyter{left:74%;top:6%}
+.logo-spider .node-mpl{left:6%;top:74%}
+.logo-spider .node-sk{left:76%;top:74%}
+.logo-spider .node-sql{left:50%;top:2%}
+.logo-spider .node-tableau{left:50%;top:96%}
+/* visible connection lines using pseudo-elements */
+.logo-spider .spider-node::before{content:"";position:absolute;left:50%;top:50%;width:2px;height:calc(100% + 40px);background:linear-gradient(180deg, rgba(7,17,39,0.65), rgba(7,17,39,0.12));transform-origin:top center;opacity:0.95}
 .logo-spider .node-python::before{transform:translate(-50%,-100%) rotate(20deg) scaleY(1)}
-.logo-spider .node-pandas::before{transform:translate(-50%,-100%) rotate(-20deg) scaleY(1)}
+.logo-spider .node-pandas::before{transform:translate(-50%,-100%) rotate(-18deg) scaleY(1)}
 .logo-spider .node-mpl::before{transform:translate(-50%,-100%) rotate(160deg) scaleY(1)}
 .logo-spider .node-sk::before{transform:translate(-50%,-100%) rotate(200deg) scaleY(1)}
 .logo-spider .node-sql::before{transform:translate(-50%,-100%) rotate(0deg) scaleY(1)}
 .logo-spider .node-tableau::before{transform:translate(-50%,-100%) rotate(180deg) scaleY(1)}
-@media (max-width:800px){.logo-spider{height:320px}.logo-spider .node-python{left:8%;top:12%}.logo-spider .node-pandas{left:68%;top:12%}.logo-spider .node-mpl{left:6%;top:82%}.logo-spider .node-sk{left:68%;top:82%}.logo-spider .node-sql{left:50%;top:6%}.logo-spider .node-tableau{left:50%;top:92%}}
+
+@media (max-width:980px){
+  .logo-spider{height:420px}
+  .logo-spider .node-python{left:8%;top:12%}
+  .logo-spider .node-numpy{left:28%;top:10%}
+  .logo-spider .node-pandas{left:68%;top:12%}
+  .logo-spider .node-jupyter{left:72%;top:10%}
+  .logo-spider .node-mpl{left:6%;top:82%}
+  .logo-spider .node-sk{left:68%;top:82%}
+  .logo-spider .node-sql{left:50%;top:6%}
+  .logo-spider .node-tableau{left:50%;top:92%}
+}
 </style>
 </script>
 </body>
