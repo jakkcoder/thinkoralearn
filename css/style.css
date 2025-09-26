@@ -305,3 +305,15 @@ h2 { margin-bottom: 1rem; }
 .logo-item img.logo-python{height:56px;padding:8px}
 
 @media (max-width:640px){.logo-item img{height:36px}.logo-item img.logo-python{height:48px}}
+
+/* Exclusive offerings cards */
+.offerings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.offering-card{background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid var(--shade);padding:1rem;border-radius:10px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+.offering-card img{width:72px;height:72px;object-fit:contain;border-radius:8px;background:#fff;padding:8px;margin-bottom:.6rem}
+.offering-card h4{margin:0 0 .4rem;font-size:1rem}
+.offering-card p{margin:0;color:var(--muted);font-size:.95rem}
+
+@media (max-width:680px){
+  .offering-card img{width:56px;height:56px}
+  .offering-card{padding:.8rem}
+}
