@@ -1,7 +1,7 @@
 // Minimal starter shape; add more fields anytime (rating, students, etc.)
 export const instructor = {
   name: "Jay Bhatt",
-  tagline: "Data Analyst by Profession, Instructor by Passion",
+  tagline: "Data Analyst Champion by Profession, Instructor by Passion",
   profileUrl: "https://www.udemy.com/user/jay-shankar-batt/",
   // Optional stats (if you want to display them)
   learners: "30,000+",
