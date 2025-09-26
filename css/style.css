@@ -22,9 +22,12 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- nav ---------- */
 header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--shade)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem}
-.brand{font-weight:800;font-size:1.25rem;color:var(--brand)}
-.menu{display:flex;gap:1rem;align-items:center}
+.nav{display:flex;align-items:center;justify-content:flex-start;gap:1rem;padding:0.5rem 1rem}
+.brand{font-weight:800;font-size:1.1rem;color:var(--brand);order:1;margin-left:auto}
+.menu{display:flex;gap:0.6rem;align-items:center;order:0}
+/* Ribbon-style left-aligned menu */
+.menu{background:linear-gradient(90deg, rgba(99,102,241,0.08), rgba(37,99,235,0.04));padding:.45rem .6rem;border-radius:0 0.8rem 0.8rem 0;box-shadow:0 6px 18px rgba(15,23,42,0.03);}
+.menu a{padding:.45rem .6rem;border-radius:.6rem}
 .menu a{font-weight:600}
 .btn{display:inline-block;padding:.6rem 1rem;border-radius:.7rem;border:1px solid var(--shade);background:#eef2ff;color:#111827;font-weight:700;transition:transform .2s ease, filter .2s ease}
 .btn:hover{transform:translateY(-2px);filter:brightness(.98)}
