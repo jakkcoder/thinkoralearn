@@ -92,5 +92,28 @@
   <p>© <span id="year"></span> ThinkoraLearn</p>
 </footer>
 <script src="../js/main.js"></script>
+<script>
+  // Wrap logos in figure and add captions based on file name
+  (function(){
+    const logosContainer = document.querySelector('.course-logos');
+    if(!logosContainer) return;
+    const imgs = Array.from(logosContainer.querySelectorAll('img'));
+    imgs.forEach(img => {
+      const src = img.getAttribute('src') || '';
+      const parts = src.split('/');
+      const filename = parts[parts.length-1] || src;
+      const name = filename.replace(/\.(svg|png|jpg|jpeg)$/i,'').replace(/[_-]/g,' ').replace(/\b\w/g, c=>c.toUpperCase());
+      const figure = document.createElement('figure');
+      figure.className = 'logo-item';
+      const caption = document.createElement('figcaption');
+      caption.textContent = name;
+      img.parentNode.replaceChild(figure, img);
+      figure.appendChild(img);
+      figure.appendChild(caption);
+      // special case: python filename -> make larger
+      if(/python/i.test(name)) img.classList.add('logo-python');
+    });
+  })();
+</script>
 </body>
 </html>
