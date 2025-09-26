@@ -317,3 +317,15 @@ h2 { margin-bottom: 1rem; }
   .offering-card img{width:56px;height:56px}
   .offering-card{padding:.8rem}
 }
+
+/* Modules covered section styling + accordion */
+.modules-covered{background:linear-gradient(180deg,#f7fbff,#f1f5f9);border:1px solid rgba(14,165,233,0.06);padding:1.25rem;border-radius:12px}
+.modules-covered h2{background:transparent;margin-bottom:0.75rem}
+.modules-covered .module-block{border-radius:8px;margin-bottom:.6rem;padding:.35rem}
+.modules-covered .module-title{cursor:pointer;padding:.6rem .8rem;border-radius:8px;background:linear-gradient(90deg,rgba(37,99,235,0.06),rgba(99,102,241,0.04));display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.modules-covered .module-title::after{content:'▸';transform:rotate(0);transition:transform .22s ease;font-size:14px;color:var(--muted)}
+.modules-covered .module-block.open .module-title::after{transform:rotate(90deg)}
+.modules-covered .module-list{overflow:hidden;max-height:0;transition:max-height .32s ease;padding:0 .8rem}
+.modules-covered .module-block.open .module-list{max-height:1200px;padding-top:.6rem;padding-bottom:.6rem}
+.modules-covered .module-list ul{margin:0 0 0 1.1rem}
+
