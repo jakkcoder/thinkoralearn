@@ -19,7 +19,7 @@ export function renderUdemySection(mountEl, instructor, courses) {
     <h2>Courses by ${instructor.name} on Udemy</h2>
     <p>
       Learn from <strong>${instructor.name}</strong>, a <strong>top-rated Udemy instructor</strong> (${instructor.tagline})${statsText}.
-      Courses focus on practical, project-based learning in Data Science, Web Development, and AI.
+  Courses focus on practical, project-based learning in Data Analysis, Web Development, and AI.
     </p>
 
     <div class="course-cards"></div>
