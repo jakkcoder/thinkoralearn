@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python for Data Analysis: Essential Libraries Guide – ThinkoraLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <meta name="description" content="Master Python's essential data analysis libraries. Complete guide to Pandas, NumPy, and Matplotlib for effective data manipulation and visualization."/>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="/index.html">ThinkoraLearn</a>
+      <nav class="menu">
+        <div class="nav-item"><a href="/index.html">Home</a></div>
+        <div class="nav-item dropdown">
+          <a href="/courses/index.html">Courses</a>
+          <div class="dropdown-menu">
+            <a href="/courses/data-analyst.html">Data Analyst Champion</a>
+            <a href="/courses/data-science-new.html">Data Science</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="/about.html">About</a>
+          <div class="dropdown-menu">
+            <a href="/about.html">Our Story</a>
+            <a href="/locations/index.html">Locations</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/blog/index.html">Blog</a></div>
+        <div class="nav-item"><a href="/faq.html">FAQ</a></div>
+        <div class="nav-item"><a href="/contact.html" class="btn btn-primary">Contact</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Article Header -->
+  <section style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#ffffff;padding:4rem 0;text-align:center;">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;">
+        <span style="background:rgba(255,255,255,0.2);padding:0.5rem 1rem;border-radius:20px;font-size:0.9rem;margin-bottom:1.5rem;display:inline-block;">Python Programming</span>
+        <h1 style="font-size:2.8rem;margin-bottom:1.5rem;line-height:1.2;letter-spacing:-1px;">Python for Data Analysis: Essential Libraries Guide</h1>
+        <p style="font-size:1.2rem;color:#ddd6fe;margin-bottom:2rem;line-height:1.6;">Master Pandas, NumPy, and Matplotlib for effective data analysis. From data manipulation to visualization, learn the core Python ecosystem every data professional needs.</p>
+        
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div style="width:40px;height:40px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:bold;">PY</div>
+            <div style="text-align:left;">
+              <div style="font-weight:500;">Python Expert</div>
+              <div style="color:#ddd6fe;font-size:0.9rem;">Data Science Instructor</div>
+            </div>
+          </div>
+          <div style="color:#ddd6fe;">•</div>
+          <div style="color:#ddd6fe;">December 8, 2024</div>
+          <div style="color:#ddd6fe;">•</div>
+          <div style="color:#ddd6fe;">18 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="container" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+    
+    <!-- Introduction -->
+    <section style="margin-bottom:3rem;">
+      <p style="font-size:1.2rem;color:#374151;line-height:1.8;margin-bottom:2rem;">
+        Python has become the go-to language for data analysis, and for good reason. Its rich ecosystem of libraries makes complex data operations simple and intuitive. In this comprehensive guide, we'll explore the three essential libraries that form the foundation of Python data analysis: NumPy, Pandas, and Matplotlib.
+      </p>
+      
+      <div style="background:#fdf4ff;padding:2rem;border-radius:12px;border-left:4px solid #8b5cf6;margin-bottom:2rem;">
+        <h3 style="color:#7c3aed;margin-bottom:1rem;">What You'll Master</h3>
+        <ul style="color:#374151;line-height:1.7;">
+          <li>NumPy for numerical computing and array operations</li>
+          <li>Pandas for data manipulation and analysis</li>
+          <li>Matplotlib for data visualization and plotting</li>
+          <li>Integration patterns and real-world workflows</li>
+          <li>Performance optimization techniques</li>
+          <li>Best practices and common pitfalls to avoid</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- NumPy Section -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔢 NumPy: The Foundation of Scientific Computing</h2>
+      
+      <div style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);padding:2rem;border-radius:12px;border:1px solid #bae6fd;margin-bottom:2rem;">
+        <h3 style="color:#1e40af;margin-bottom:1rem;">Why NumPy?</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          NumPy (Numerical Python) is the cornerstone of the Python data science ecosystem. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.
+        </p>
+        <div style="background:rgba(59,130,246,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#1e40af;">Key Benefits:</strong> Up to 100x faster than pure Python for numerical operations
+        </div>
+      </div>
+
+      <h3 style="color:#3b82f6;margin-bottom:1.5rem;">Essential NumPy Operations</h3>
+      
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Array Creation -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#1e40af;margin-bottom:1rem;">🏗️ Array Creation and Basic Operations</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>import numpy as np
+
+# Creating arrays
+arr_1d = np.array([1, 2, 3, 4, 5])
+arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+zeros = np.zeros((3, 4))
+ones = np.ones((2, 3))
+range_arr = np.arange(0, 10, 2)  # [0, 2, 4, 6, 8]
+linear_space = np.linspace(0, 1, 5)  # 5 equally spaced points</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>np.array():</strong> Convert lists/tuples to NumPy arrays</li>
+            <li><strong>np.zeros():</strong> Create arrays filled with zeros</li>
+            <li><strong>np.ones():</strong> Create arrays filled with ones</li>
+            <li><strong>np.arange():</strong> Create sequences with step size</li>
+            <li><strong>np.linspace():</strong> Create evenly spaced numbers</li>
+          </ul>
+        </div>
+
+        <!-- Array Manipulation -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#1e40af;margin-bottom:1rem;">🔧 Array Manipulation and Indexing</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code># Array manipulation
+arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped = arr.reshape(2, 3)  # Convert to 2x3 matrix
+flattened = reshaped.flatten()  # Convert back to 1D
+
+# Indexing and slicing
+first_element = arr[0]  # First element
+last_three = arr[-3:]   # Last three elements
+subset = arr[arr > 3]   # Elements greater than 3
+
+# Boolean indexing
+data = np.array([1, 2, 3, 4, 5])
+mask = data > 2
+filtered_data = data[mask]  # [3, 4, 5]</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>reshape():</strong> Change array dimensions without copying data</li>
+            <li><strong>flatten():</strong> Convert multi-dimensional array to 1D</li>
+            <li><strong>Boolean indexing:</strong> Filter arrays based on conditions</li>
+            <li><strong>Slicing:</strong> Extract portions of arrays efficiently</li>
+          </ul>
+        </div>
+
+        <!-- Mathematical Operations -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#1e40af;margin-bottom:1rem;">⚡ Mathematical Operations</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code># Element-wise operations
+a = np.array([1, 2, 3, 4])
+b = np.array([2, 3, 4, 5])
+
+addition = a + b      # [3, 5, 7, 9]
+multiplication = a * b # [2, 6, 12, 20]
+power = a ** 2        # [1, 4, 9, 16]
+
+# Statistical operations
+mean_val = np.mean(a)     # 2.5
+std_val = np.std(a)       # 1.29
+sum_val = np.sum(a)       # 10
+max_val = np.max(a)       # 4
+min_val = np.min(a)       # 1
+
+# Linear algebra
+matrix_a = np.array([[1, 2], [3, 4]])
+matrix_b = np.array([[5, 6], [7, 8]])
+dot_product = np.dot(matrix_a, matrix_b)  # Matrix multiplication</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Vectorized operations:</strong> Apply operations to entire arrays at once</li>
+            <li><strong>Statistical functions:</strong> Built-in functions for descriptive statistics</li>
+            <li><strong>Linear algebra:</strong> Matrix operations and decompositions</li>
+            <li><strong>Broadcasting:</strong> Perform operations on arrays of different shapes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pandas Section -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🐼 Pandas: Data Manipulation Powerhouse</h2>
+      
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:2rem;border-radius:12px;border:1px solid #bbf7d0;margin-bottom:2rem;">
+        <h3 style="color:#15803d;margin-bottom:1rem;">The Swiss Army Knife of Data Analysis</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          Pandas provides high-performance, easy-to-use data structures (DataFrame and Series) and data analysis tools. It's built on top of NumPy and is designed to make data cleaning and analysis fast and intuitive.
+        </p>
+        <div style="background:rgba(16,185,129,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#15803d;">Perfect For:</strong> Structured data manipulation, cleaning, and analysis
+        </div>
+      </div>
+
+      <h3 style="color:#10b981;margin-bottom:1.5rem;">Core Pandas Concepts</h3>
+      
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- DataFrames and Series -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#15803d;margin-bottom:1rem;">📊 DataFrames and Series</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>import pandas as pd
+
+# Creating DataFrames
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [25, 30, 35, 28],
+    'City': ['New York', 'London', 'Tokyo', 'Paris'],
+    'Salary': [70000, 80000, 90000, 75000]
+}
+df = pd.DataFrame(data)
+
+# Creating Series
+ages = pd.Series([25, 30, 35, 28], name='Age')
+
+# Reading from files
+df_csv = pd.read_csv('data.csv')
+df_excel = pd.read_excel('data.xlsx')
+df_json = pd.read_json('data.json')</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>DataFrame:</strong> 2D labeled data structure with columns of different types</li>
+            <li><strong>Series:</strong> 1D labeled array, similar to a column in a spreadsheet</li>
+            <li><strong>Multiple formats:</strong> Read from CSV, Excel, JSON, SQL, and more</li>
+          </ul>
+        </div>
+
+        <!-- Data Exploration -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#15803d;margin-bottom:1rem;">🔍 Data Exploration and Inspection</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code># Basic information about the dataset
+df.head()          # First 5 rows
+df.tail()          # Last 5 rows
+df.info()          # Data types and non-null counts
+df.describe()      # Summary statistics
+df.shape           # (rows, columns)
+df.columns         # Column names
+df.dtypes          # Data types of each column
+
+# Checking for missing values
+df.isnull().sum()          # Count of null values per column
+df.duplicated().sum()      # Count of duplicate rows
+
+# Unique values and value counts
+df['City'].unique()        # Unique values in City column
+df['City'].value_counts()  # Count of each unique value</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Quick overview:</strong> Understand your data structure and quality</li>
+            <li><strong>Missing data detection:</strong> Identify data quality issues</li>
+            <li><strong>Statistical summary:</strong> Get descriptive statistics instantly</li>
+          </ul>
+        </div>
+
+        <!-- Data Manipulation -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#15803d;margin-bottom:1rem;">⚙️ Data Manipulation and Cleaning</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code># Selecting data
+df['Name']                    # Select single column
+df[['Name', 'Age']]          # Select multiple columns
+df[df['Age'] > 30]           # Filter rows based on condition
+df.loc[0:2, 'Name':'Age']    # Select by label
+df.iloc[0:3, 0:2]            # Select by position
+
+# Adding and modifying columns
+df['Age_Group'] = df['Age'].apply(lambda x: 'Young' if x < 30 else 'Senior')
+df['Salary_K'] = df['Salary'] / 1000
+
+# Handling missing values
+df.dropna()                  # Remove rows with missing values
+df.fillna(df.mean())         # Fill missing values with mean
+df['Age'].fillna(df['Age'].median(), inplace=True)
+
+# Grouping and aggregation
+grouped = df.groupby('City')['Salary'].mean()
+df.groupby('Age_Group').agg({'Salary': ['mean', 'max', 'min']})</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Flexible selection:</strong> Multiple ways to slice and filter data</li>
+            <li><strong>Data transformation:</strong> Create new columns and modify existing ones</li>
+            <li><strong>Grouping operations:</strong> Aggregate data by categories</li>
+            <li><strong>Missing data handling:</strong> Various strategies for incomplete data</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matplotlib Section -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">📈 Matplotlib: Bringing Data to Life</h2>
+      
+      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);padding:2rem;border-radius:12px;border:1px solid #fcd34d;margin-bottom:2rem;">
+        <h3 style="color:#92400e;margin-bottom:1rem;">The Foundation of Python Visualization</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          Matplotlib is the most widely used plotting library in Python. It provides a MATLAB-like interface for creating static, animated, and interactive visualizations. While other libraries offer more specific features, Matplotlib remains the foundation that most other visualization libraries are built upon.
+        </p>
+        <div style="background:rgba(245,158,11,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#92400e;">Strength:</strong> Complete control over every aspect of your plots
+        </div>
+      </div>
+
+      <h3 style="color:#f59e0b;margin-bottom:1.5rem;">Essential Plotting Techniques</h3>
+      
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Basic Plots -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#f59e0b;margin-bottom:1rem;">📊 Basic Plot Types</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Line plot
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+plt.plot(x, y, label='sin(x)', linewidth=2)
+plt.xlabel('X axis')
+plt.ylabel('Y axis')
+plt.title('Sine Wave')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Bar plot
+categories = ['A', 'B', 'C', 'D']
+values = [23, 45, 56, 78]
+plt.bar(categories, values, color='skyblue')
+plt.title('Bar Chart Example')
+
+# Histogram
+data = np.random.normal(100, 15, 1000)
+plt.hist(data, bins=30, alpha=0.7, color='green')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Normal Distribution Histogram')</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Line plots:</strong> Perfect for time series and continuous data</li>
+            <li><strong>Bar charts:</strong> Compare categorical data effectively</li>
+            <li><strong>Histograms:</strong> Visualize data distributions</li>
+            <li><strong>Customization:</strong> Control colors, labels, and styling</li>
+          </ul>
+        </div>
+
+        <!-- Advanced Visualizations -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#f59e0b;margin-bottom:1rem;">🎨 Advanced Visualizations</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code># Scatter plot with customization
+plt.figure(figsize=(10, 6))
+plt.scatter(df['Age'], df['Salary'], 
+           c=df['Salary'], cmap='viridis', 
+           s=100, alpha=0.7)
+plt.colorbar(label='Salary')
+plt.xlabel('Age')
+plt.ylabel('Salary')
+plt.title('Age vs Salary')
+
+# Subplots
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+axes[0,0].plot(x, y)
+axes[0,1].bar(categories, values)
+axes[1,0].hist(data, bins=20)
+axes[1,1].scatter(df['Age'], df['Salary'])
+plt.tight_layout()
+
+# Customizing appearance
+plt.style.use('seaborn-v0_8')  # Apply seaborn style
+plt.rcParams['figure.figsize'] = (10, 6)
+plt.rcParams['font.size'] = 12</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Scatter plots:</strong> Explore relationships between variables</li>
+            <li><strong>Subplots:</strong> Create multiple plots in one figure</li>
+            <li><strong>Styling:</strong> Use built-in styles or create custom themes</li>
+            <li><strong>Color maps:</strong> Add dimensional information through color</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration & Workflow -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔄 Integration and Real-World Workflow</h2>
+      
+      <div style="background:#f8fafc;padding:2rem;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:2rem;">
+        <h3 style="color:#1e293b;margin-bottom:1.5rem;">Complete Data Analysis Workflow Example</h3>
+        <div style="background:#ffffff;padding:1.5rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;overflow-x:auto;">
+          <pre style="margin:0;color:#374151;"><code># Complete workflow example: Sales data analysis
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Data Loading and Exploration
+df = pd.read_csv('sales_data.csv')
+print(f"Dataset shape: {df.shape}")
+print(f"Missing values: {df.isnull().sum().sum()}")
+
+# 2. Data Cleaning
+df['Date'] = pd.to_datetime(df['Date'])
+df = df.dropna()
+df['Month'] = df['Date'].dt.month
+df['Revenue'] = df['Quantity'] * df['Price']
+
+# 3. Data Analysis with NumPy
+monthly_revenue = df.groupby('Month')['Revenue'].sum()
+growth_rate = np.diff(monthly_revenue) / monthly_revenue[:-1] * 100
+
+# 4. Advanced Pandas Operations
+top_products = df.groupby('Product').agg({
+    'Quantity': 'sum',
+    'Revenue': 'sum',
+    'Price': 'mean'
+}).sort_values('Revenue', ascending=False)
+
+# 5. Visualization
+fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+
+# Monthly revenue trend
+axes[0,0].plot(monthly_revenue.index, monthly_revenue.values, 
+               marker='o', linewidth=2)
+axes[0,0].set_title('Monthly Revenue Trend')
+axes[0,0].set_xlabel('Month')
+axes[0,0].set_ylabel('Revenue ($)')
+
+# Top products by revenue
+top_5_products = top_products.head(5)
+axes[0,1].bar(range(len(top_5_products)), top_5_products['Revenue'])
+axes[0,1].set_title('Top 5 Products by Revenue')
+axes[0,1].set_xticks(range(len(top_5_products)))
+axes[0,1].set_xticklabels(top_5_products.index, rotation=45)
+
+# Revenue distribution
+axes[1,0].hist(df['Revenue'], bins=30, alpha=0.7, color='green')
+axes[1,0].set_title('Revenue Distribution')
+axes[1,0].set_xlabel('Revenue ($)')
+axes[1,0].set_ylabel('Frequency')
+
+# Quantity vs Revenue scatter
+axes[1,1].scatter(df['Quantity'], df['Revenue'], alpha=0.6)
+axes[1,1].set_title('Quantity vs Revenue')
+axes[1,1].set_xlabel('Quantity')
+axes[1,1].set_ylabel('Revenue ($)')
+
+plt.tight_layout()
+plt.show()
+
+# 6. Summary Statistics
+print(f"Total Revenue: ${df['Revenue'].sum():,.2f}")
+print(f"Average Order Value: ${df['Revenue'].mean():.2f}")
+print(f"Best Month: {monthly_revenue.idxmax()} with ${monthly_revenue.max():,.2f}")
+</code></pre>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:2rem;">
+        <!-- Performance Tips -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#dc2626;margin-bottom:1rem;">⚡ Performance Optimization</h4>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Vectorization:</strong> Use NumPy operations instead of loops</li>
+            <li><strong>Memory efficiency:</strong> Use appropriate data types</li>
+            <li><strong>Chunking:</strong> Process large datasets in chunks</li>
+            <li><strong>Index optimization:</strong> Set appropriate indexes in Pandas</li>
+            <li><strong>Avoid copying:</strong> Use views when possible</li>
+          </ul>
+        </div>
+
+        <!-- Best Practices -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#059669;margin-bottom:1rem;">✅ Best Practices</h4>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Data validation:</strong> Always check data quality first</li>
+            <li><strong>Reproducible analysis:</strong> Set random seeds</li>
+            <li><strong>Clear documentation:</strong> Comment your analysis steps</li>
+            <li><strong>Version control:</strong> Track changes to your analysis</li>
+            <li><strong>Modular code:</strong> Break analysis into functions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">⚠️ Common Pitfalls and How to Avoid Them</h2>
+      
+      <div style="display:grid;gap:1.5rem;">
+        <div style="background:#fef2f2;padding:1.5rem;border-radius:12px;border-left:4px solid #ef4444;">
+          <h4 style="color:#dc2626;margin-bottom:0.8rem;">Memory Issues with Large Datasets</h4>
+          <p style="color:#dc2626;margin-bottom:0.8rem;line-height:1.6;">Loading entire datasets into memory can cause crashes.</p>
+          <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">
+            <strong>Solution:</strong> Use <code>pd.read_csv(chunksize=1000)</code> to process data in chunks, or consider using Dask for larger-than-memory datasets.
+          </p>
+        </div>
+
+        <div style="background:#fef2f2;padding:1.5rem;border-radius:12px;border-left:4px solid #ef4444;">
+          <h4 style="color:#dc2626;margin-bottom:0.8rem;">Chain Assignment Warnings</h4>
+          <p style="color:#dc2626;margin-bottom:0.8rem;line-height:1.6;">Using chained assignments like <code>df[df['A'] > 0]['B'] = 1</code> can be unreliable.</p>
+          <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">
+            <strong>Solution:</strong> Use <code>df.loc[df['A'] > 0, 'B'] = 1</code> for explicit indexing.
+          </p>
+        </div>
+
+        <div style="background:#fef2f2;padding:1.5rem;border-radius:12px;border-left:4px solid #ef4444;">
+          <h4 style="color:#dc2626;margin-bottom:0.8rem;">Inefficient Looping</h4>
+          <p style="color:#dc2626;margin-bottom:0.8rem;line-height:1.6;">Using Python loops on DataFrames is extremely slow.</p>
+          <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">
+            <strong>Solution:</strong> Use vectorized operations: <code>df['new_col'] = df['col1'] + df['col2']</code> instead of looping through rows.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section style="background:linear-gradient(135deg,#1e293b,#334155);color:#ffffff;padding:3rem 2rem;border-radius:20px;text-align:center;margin-bottom:3rem;">
+      <h2 style="color:#ffffff;font-size:2rem;margin-bottom:1.5rem;">🚀 Next Steps in Your Python Journey</h2>
+      <p style="color:#cbd5e1;font-size:1.1rem;line-height:1.7;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;">
+        Mastering these three libraries will give you a solid foundation for data analysis. As you grow, consider exploring Seaborn for statistical visualization, Plotly for interactive plots, and Scikit-learn for machine learning.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:2rem 0;max-width:600px;margin-left:auto;margin-right:auto;">
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">📚</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Keep Practicing</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Work on real datasets to reinforce learning</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🔧</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Build Projects</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Apply these skills to solve actual problems</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">📈</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Expand Toolkit</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Learn additional libraries as needed</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <a href="/courses/data-analyst.html" style="background:#8b5cf6;color:#ffffff;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;">Master Data Analysis</a>
+        <a href="/courses/data-science-new.html" style="background:transparent;color:#ffffff;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;border:2px solid #ffffff;">Advanced Data Science</a>
+      </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <div style="text-align:center;margin-bottom:2rem;">
+      <a href="/blog/index.html" style="color:#8b5cf6;text-decoration:none;font-weight:500;">← Back to Blog</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div><h4>ThinkoraLearn</h4><p>Practical training with real projects and mentorship.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="/courses/index.html">Courses</a></li><li><a href="/about.html">About</a></li><li><a href="/faq.html">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></li><li><a href="#" id="openConsultFooter">Free Counselling</a></li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> ThinkoraLearn</div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

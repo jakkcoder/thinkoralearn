@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SQL for Data Analytics: Advanced Techniques – ThinkoraLearn</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <meta name="description" content="Master advanced SQL techniques for data analytics. Learn window functions, CTEs, performance optimization, and complex queries for professional data analysis."/>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="/index.html">ThinkoraLearn</a>
+      <nav class="menu">
+        <div class="nav-item"><a href="/index.html">Home</a></div>
+        <div class="nav-item dropdown">
+          <a href="/courses/index.html">Courses</a>
+          <div class="dropdown-menu">
+            <a href="/courses/data-analyst.html">Data Analyst Champion</a>
+            <a href="/courses/data-science-new.html">Data Science</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="/about.html">About</a>
+          <div class="dropdown-menu">
+            <a href="/about.html">Our Story</a>
+            <a href="/locations/index.html">Locations</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/blog/index.html">Blog</a></div>
+        <div class="nav-item"><a href="/faq.html">FAQ</a></div>
+        <div class="nav-item"><a href="/contact.html" class="btn btn-primary">Contact</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Article Header -->
+  <section style="background:linear-gradient(135deg,#059669,#10b981);color:#ffffff;padding:4rem 0;text-align:center;">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;">
+        <span style="background:rgba(255,255,255,0.2);padding:0.5rem 1rem;border-radius:20px;font-size:0.9rem;margin-bottom:1.5rem;display:inline-block;">Database Analytics</span>
+        <h1 style="font-size:2.8rem;margin-bottom:1.5rem;line-height:1.2;letter-spacing:-1px;">SQL for Data Analytics: Advanced Techniques</h1>
+        <p style="font-size:1.2rem;color:#d1fae5;margin-bottom:2rem;line-height:1.6;">Master window functions, CTEs, performance optimization, and complex analytical queries. Transform raw data into actionable insights with professional SQL techniques.</p>
+        
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div style="width:40px;height:40px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:bold;">SQL</div>
+            <div style="text-align:left;">
+              <div style="font-weight:500;">SQL Expert</div>
+              <div style="color:#d1fae5;font-size:0.9rem;">Database Analytics Specialist</div>
+            </div>
+          </div>
+          <div style="color:#d1fae5;">•</div>
+          <div style="color:#d1fae5;">December 9, 2024</div>
+          <div style="color:#d1fae5;">•</div>
+          <div style="color:#d1fae5;">22 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="container" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+    
+    <!-- Introduction -->
+    <section style="margin-bottom:3rem;">
+      <p style="font-size:1.2rem;color:#374151;line-height:1.8;margin-bottom:2rem;">
+        While basic SQL can handle simple queries, data analytics demands advanced techniques to extract meaningful insights from complex datasets. This comprehensive guide covers the sophisticated SQL skills that separate data professionals from casual users.
+      </p>
+      
+      <div style="background:#f0fdf4;padding:2rem;border-radius:12px;border-left:4px solid #10b981;margin-bottom:2rem;">
+        <h3 style="color:#059669;margin-bottom:1rem;">Advanced Skills You'll Master</h3>
+        <ul style="color:#374151;line-height:1.7;">
+          <li>Window functions for sophisticated analytics</li>
+          <li>Common Table Expressions (CTEs) for complex logic</li>
+          <li>Advanced JOIN techniques and performance optimization</li>
+          <li>Date/time analytics and time series operations</li>
+          <li>Statistical functions and data modeling</li>
+          <li>Query optimization and performance tuning</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Window Functions Section -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🪟 Window Functions: The Game Changer</h2>
+      
+      <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);padding:2rem;border-radius:12px;border:1px solid #a7f3d0;margin-bottom:2rem;">
+        <h3 style="color:#059669;margin-bottom:1rem;">Why Window Functions Matter</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          Window functions perform calculations across a set of related rows without collapsing the result set. They enable complex analytics like running totals, rankings, and comparisons that would be difficult or impossible with traditional GROUP BY operations.
+        </p>
+        <div style="background:rgba(16,185,129,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#059669;">Key Advantage:</strong> Preserve row-level detail while performing aggregate calculations
+        </div>
+      </div>
+
+      <h3 style="color:#10b981;margin-bottom:1.5rem;">Essential Window Function Patterns</h3>
+      
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Ranking Functions -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#059669;margin-bottom:1rem;">🏆 Ranking and Row Number Functions</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- ROW_NUMBER: Assigns unique sequential numbers
+SELECT 
+    employee_name,
+    salary,
+    department,
+    ROW_NUMBER() OVER (ORDER BY salary DESC) as overall_rank,
+    ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) as dept_rank
+FROM employees;
+
+-- RANK: Handles ties by giving same rank, skips next numbers
+SELECT 
+    product_name,
+    revenue,
+    RANK() OVER (ORDER BY revenue DESC) as revenue_rank
+FROM products;
+
+-- DENSE_RANK: Handles ties but doesn't skip numbers
+SELECT 
+    student_name,
+    score,
+    DENSE_RANK() OVER (ORDER BY score DESC) as rank
+FROM exam_results;
+
+-- NTILE: Divides rows into N groups
+SELECT 
+    customer_name,
+    total_purchases,
+    NTILE(4) OVER (ORDER BY total_purchases DESC) as quartile
+FROM customers;</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>ROW_NUMBER():</strong> Unique sequential numbering, useful for pagination</li>
+            <li><strong>RANK():</strong> Handles ties but skips subsequent ranks</li>
+            <li><strong>DENSE_RANK():</strong> Handles ties without skipping ranks</li>
+            <li><strong>NTILE(n):</strong> Divides data into n equal groups or buckets</li>
+          </ul>
+        </div>
+
+        <!-- Aggregate Window Functions -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#059669;margin-bottom:1rem;">📊 Aggregate Window Functions</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Running totals and cumulative calculations
+SELECT 
+    order_date,
+    daily_revenue,
+    SUM(daily_revenue) OVER (ORDER BY order_date) as running_total,
+    AVG(daily_revenue) OVER (ORDER BY order_date ROWS 6 PRECEDING) as week_avg
+FROM daily_sales;
+
+-- Moving averages with different window frames
+SELECT 
+    date,
+    stock_price,
+    AVG(stock_price) OVER (
+        ORDER BY date 
+        ROWS BETWEEN 29 PRECEDING AND CURRENT ROW
+    ) as moving_avg_30_day,
+    AVG(stock_price) OVER (
+        ORDER BY date 
+        ROWS BETWEEN 6 PRECEDING AND 6 FOLLOWING
+    ) as centered_avg_14_day
+FROM stock_prices;
+
+-- Percentage of total calculations
+SELECT 
+    product_category,
+    sales_amount,
+    sales_amount / SUM(sales_amount) OVER () * 100 as pct_of_total,
+    sales_amount / SUM(sales_amount) OVER (PARTITION BY region) * 100 as pct_of_region
+FROM sales_data;</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Running totals:</strong> Cumulative sums for progressive analysis</li>
+            <li><strong>Moving averages:</strong> Smooth out trends and reduce noise</li>
+            <li><strong>Window frames:</strong> Control which rows to include in calculations</li>
+            <li><strong>Percentage calculations:</strong> Compare parts to whole efficiently</li>
+          </ul>
+        </div>
+
+        <!-- Lead/Lag Functions -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#059669;margin-bottom:1rem;">🔄 Lead and Lag Functions</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- LAG: Access previous row values
+SELECT 
+    date,
+    revenue,
+    LAG(revenue, 1) OVER (ORDER BY date) as prev_day_revenue,
+    revenue - LAG(revenue, 1) OVER (ORDER BY date) as daily_change,
+    (revenue - LAG(revenue, 1) OVER (ORDER BY date)) / 
+    LAG(revenue, 1) OVER (ORDER BY date) * 100 as pct_change
+FROM daily_revenue;
+
+-- LEAD: Access next row values
+SELECT 
+    customer_id,
+    purchase_date,
+    LEAD(purchase_date, 1) OVER (
+        PARTITION BY customer_id 
+        ORDER BY purchase_date
+    ) as next_purchase,
+    DATEDIFF(
+        LEAD(purchase_date, 1) OVER (
+            PARTITION BY customer_id 
+            ORDER BY purchase_date
+        ), 
+        purchase_date
+    ) as days_to_next_purchase
+FROM customer_purchases;
+
+-- FIRST_VALUE and LAST_VALUE
+SELECT 
+    employee_id,
+    salary,
+    hire_date,
+    FIRST_VALUE(salary) OVER (
+        PARTITION BY department 
+        ORDER BY hire_date
+    ) as first_hire_salary,
+    LAST_VALUE(salary) OVER (
+        PARTITION BY department 
+        ORDER BY hire_date 
+        RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) as latest_hire_salary
+FROM employees;</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>LAG():</strong> Compare with previous periods for trend analysis</li>
+            <li><strong>LEAD():</strong> Look ahead to future values for forecasting</li>
+            <li><strong>FIRST_VALUE/LAST_VALUE:</strong> Compare with first/last in window</li>
+            <li><strong>Time series analysis:</strong> Perfect for sequential data analysis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTEs Section -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔗 Common Table Expressions (CTEs)</h2>
+      
+      <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:2rem;border-radius:12px;border:1px solid #93c5fd;margin-bottom:2rem;">
+        <h3 style="color:#1d4ed8;margin-bottom:1rem;">Organizing Complex Logic</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          CTEs (Common Table Expressions) allow you to create temporary named result sets that exist only during query execution. They make complex queries more readable, maintainable, and enable recursive operations.
+        </p>
+        <div style="background:rgba(59,130,246,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#1d4ed8;">Perfect For:</strong> Breaking down complex queries into logical, readable steps
+        </div>
+      </div>
+
+      <h3 style="color:#3b82f6;margin-bottom:1.5rem;">CTE Patterns and Applications</h3>
+      
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Basic CTEs -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#1d4ed8;margin-bottom:1rem;">📝 Basic CTEs for Query Organization</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Single CTE for data preparation
+WITH clean_sales AS (
+    SELECT 
+        product_id,
+        customer_id,
+        order_date,
+        quantity,
+        unit_price,
+        quantity * unit_price as total_amount
+    FROM raw_sales
+    WHERE order_date >= '2024-01-01'
+        AND quantity > 0
+        AND unit_price > 0
+)
+SELECT 
+    product_id,
+    COUNT(*) as order_count,
+    SUM(quantity) as total_quantity,
+    SUM(total_amount) as total_revenue,
+    AVG(total_amount) as avg_order_value
+FROM clean_sales
+GROUP BY product_id
+ORDER BY total_revenue DESC;
+
+-- Multiple CTEs for step-by-step analysis
+WITH monthly_sales AS (
+    SELECT 
+        DATE_TRUNC('month', order_date) as month,
+        SUM(amount) as monthly_revenue
+    FROM orders
+    WHERE order_date >= '2023-01-01'
+    GROUP BY DATE_TRUNC('month', order_date)
+),
+sales_with_growth AS (
+    SELECT 
+        month,
+        monthly_revenue,
+        LAG(monthly_revenue) OVER (ORDER BY month) as prev_month,
+        (monthly_revenue - LAG(monthly_revenue) OVER (ORDER BY month)) / 
+        LAG(monthly_revenue) OVER (ORDER BY month) * 100 as growth_rate
+    FROM monthly_sales
+)
+SELECT 
+    month,
+    monthly_revenue,
+    growth_rate,
+    CASE 
+        WHEN growth_rate > 10 THEN 'High Growth'
+        WHEN growth_rate > 0 THEN 'Positive Growth'
+        WHEN growth_rate < -10 THEN 'Declining'
+        ELSE 'Stable'
+    END as growth_category
+FROM sales_with_growth
+ORDER BY month;</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Data cleaning:</strong> Prepare and filter data in logical steps</li>
+            <li><strong>Multiple CTEs:</strong> Chain operations for complex analysis</li>
+            <li><strong>Readability:</strong> Break complex logic into understandable parts</li>
+            <li><strong>Reusability:</strong> Reference the same CTE multiple times</li>
+          </ul>
+        </div>
+
+        <!-- Recursive CTEs -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#1d4ed8;margin-bottom:1rem;">🔄 Recursive CTEs</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Organizational hierarchy traversal
+WITH RECURSIVE employee_hierarchy AS (
+    -- Anchor: Start with top-level managers
+    SELECT 
+        employee_id,
+        employee_name,
+        manager_id,
+        1 as level,
+        employee_name as path
+    FROM employees
+    WHERE manager_id IS NULL
+    
+    UNION ALL
+    
+    -- Recursive: Find subordinates
+    SELECT 
+        e.employee_id,
+        e.employee_name,
+        e.manager_id,
+        eh.level + 1,
+        eh.path || ' -> ' || e.employee_name
+    FROM employees e
+    INNER JOIN employee_hierarchy eh ON e.manager_id = eh.employee_id
+    WHERE eh.level < 10  -- Prevent infinite recursion
+)
+SELECT 
+    level,
+    employee_name,
+    path,
+    COUNT(*) OVER (PARTITION BY level) as employees_at_level
+FROM employee_hierarchy
+ORDER BY level, employee_name;
+
+-- Date series generation
+WITH RECURSIVE date_series AS (
+    SELECT DATE('2024-01-01') as date_value
+    
+    UNION ALL
+    
+    SELECT date_value + INTERVAL 1 DAY
+    FROM date_series
+    WHERE date_value < DATE('2024-12-31')
+),
+daily_sales_complete AS (
+    SELECT 
+        ds.date_value,
+        COALESCE(s.daily_total, 0) as daily_sales
+    FROM date_series ds
+    LEFT JOIN (
+        SELECT 
+            DATE(order_date) as sale_date,
+            SUM(amount) as daily_total
+        FROM orders
+        WHERE order_date BETWEEN '2024-01-01' AND '2024-12-31'
+        GROUP BY DATE(order_date)
+    ) s ON ds.date_value = s.sale_date
+)
+SELECT 
+    date_value,
+    daily_sales,
+    AVG(daily_sales) OVER (
+        ORDER BY date_value 
+        ROWS 6 PRECEDING
+    ) as seven_day_avg
+FROM daily_sales_complete
+ORDER BY date_value;</code></pre>
+          </div>
+          <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>Hierarchical data:</strong> Traverse organizational or category trees</li>
+            <li><strong>Date series:</strong> Generate continuous date ranges for complete datasets</li>
+            <li><strong>Path finding:</strong> Navigate relationships and dependencies</li>
+            <li><strong>Recursive logic:</strong> Handle self-referential data structures</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced JOINs -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔗 Advanced JOIN Techniques</h2>
+      
+      <div style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);padding:2rem;border-radius:12px;border:1px solid #f9a8d4;margin-bottom:2rem;">
+        <h3 style="color:#be185d;margin-bottom:1rem;">Beyond Basic JOINs</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          While INNER and LEFT JOINs handle most scenarios, advanced analytics often requires more sophisticated joining techniques. These patterns help solve complex data integration challenges efficiently.
+        </p>
+        <div style="background:rgba(219,39,119,0.1);padding:1rem;border-radius:8px;">
+          <strong style="color:#be185d;">Advanced Techniques:</strong> Self-joins, LATERAL joins, and multiple join conditions
+        </div>
+      </div>
+
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Self JOINs -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#be185d;margin-bottom:1rem;">🪞 Self JOINs for Comparative Analysis</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Finding employee pairs in same department
+SELECT 
+    e1.employee_name as employee1,
+    e2.employee_name as employee2,
+    e1.department,
+    ABS(e1.salary - e2.salary) as salary_difference
+FROM employees e1
+INNER JOIN employees e2 
+    ON e1.department = e2.department
+    AND e1.employee_id < e2.employee_id  -- Avoid duplicates and self-matches
+WHERE ABS(e1.salary - e2.salary) < 5000;
+
+-- Comparing current vs previous values
+SELECT 
+    s1.date as current_date,
+    s1.revenue as current_revenue,
+    s2.date as previous_date,
+    s2.revenue as previous_revenue,
+    s1.revenue - s2.revenue as revenue_change,
+    CASE 
+        WHEN s1.revenue > s2.revenue THEN 'Increase'
+        WHEN s1.revenue < s2.revenue THEN 'Decrease'
+        ELSE 'No Change'
+    END as trend
+FROM sales_summary s1
+LEFT JOIN sales_summary s2 
+    ON s2.date = s1.date - INTERVAL 1 DAY
+ORDER BY s1.date;</code></pre>
+          </div>
+        </div>
+
+        <!-- Complex JOIN Conditions -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#be185d;margin-bottom:1rem;">⚙️ Complex JOIN Conditions</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Range-based joins for time periods
+SELECT 
+    e.employee_name,
+    e.start_date,
+    s.salary_amount,
+    s.effective_date
+FROM employees e
+INNER JOIN salary_history s 
+    ON e.employee_id = s.employee_id
+    AND s.effective_date <= e.start_date + INTERVAL 90 DAY  -- Salary within 90 days
+    AND (s.end_date IS NULL OR s.end_date >= e.start_date);
+
+-- Conditional joins with multiple criteria
+SELECT 
+    c.customer_name,
+    c.registration_date,
+    p.promotion_name,
+    p.discount_percentage
+FROM customers c
+LEFT JOIN promotions p 
+    ON (c.customer_type = 'PREMIUM' AND p.customer_tier = 'PREMIUM')
+    OR (c.customer_type = 'REGULAR' AND p.customer_tier IN ('REGULAR', 'ALL'))
+    AND p.start_date <= c.registration_date
+    AND p.end_date >= c.registration_date;
+
+-- Fuzzy matching with similarity functions
+SELECT 
+    c1.company_name as source_company,
+    c2.company_name as matched_company,
+    SIMILARITY(c1.company_name, c2.company_name) as similarity_score
+FROM companies c1
+CROSS JOIN companies c2
+WHERE c1.company_id != c2.company_id
+    AND SIMILARITY(c1.company_name, c2.company_name) > 0.8
+ORDER BY similarity_score DESC;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Date/Time Analytics -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">📅 Advanced Date/Time Analytics</h2>
+      
+      <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);padding:2rem;border-radius:12px;border:1px solid #fcd34d;margin-bottom:2rem;">
+        <h3 style="color:#92400e;margin-bottom:1rem;">Time-Based Analysis Mastery</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:1rem;">
+          Time series analysis is crucial for business intelligence. Advanced date/time functions enable sophisticated temporal analysis, cohort studies, and seasonal pattern detection.
+        </p>
+      </div>
+
+      <div style="display:grid;gap:2rem;margin-bottom:2rem;">
+        <!-- Date Functions -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#f59e0b;margin-bottom:1rem;">📊 Advanced Date Functions</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Cohort analysis: Customer retention by signup month
+WITH customer_cohorts AS (
+    SELECT 
+        customer_id,
+        DATE_TRUNC('month', registration_date) as cohort_month,
+        registration_date
+    FROM customers
+),
+customer_orders AS (
+    SELECT 
+        c.customer_id,
+        c.cohort_month,
+        DATE_TRUNC('month', o.order_date) as order_month,
+        EXTRACT(EPOCH FROM (DATE_TRUNC('month', o.order_date) - c.cohort_month)) / 2628000 as month_number
+    FROM customer_cohorts c
+    INNER JOIN orders o ON c.customer_id = o.customer_id
+)
+SELECT 
+    cohort_month,
+    month_number,
+    COUNT(DISTINCT customer_id) as active_customers,
+    COUNT(DISTINCT customer_id) * 100.0 / 
+    FIRST_VALUE(COUNT(DISTINCT customer_id)) OVER (
+        PARTITION BY cohort_month 
+        ORDER BY month_number
+    ) as retention_rate
+FROM customer_orders
+GROUP BY cohort_month, month_number
+ORDER BY cohort_month, month_number;
+
+-- Business days calculation
+WITH business_days AS (
+    SELECT 
+        order_id,
+        order_date,
+        delivery_date,
+        CASE 
+            WHEN EXTRACT(DOW FROM generate_series) NOT IN (0, 6) 
+            THEN 1 ELSE 0 
+        END as is_business_day
+    FROM orders,
+         generate_series(order_date, delivery_date, '1 day'::interval) as generate_series
+)
+SELECT 
+    order_id,
+    order_date,
+    delivery_date,
+    SUM(is_business_day) as business_days_to_delivery
+FROM business_days
+GROUP BY order_id, order_date, delivery_date;</code></pre>
+          </div>
+        </div>
+
+        <!-- Seasonal Analysis -->
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+          <h4 style="color:#f59e0b;margin-bottom:1rem;">🌟 Seasonal and Cyclical Analysis</h4>
+          <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+            <pre style="margin:0;color:#374151;"><code>-- Seasonal patterns by day of week and month
+SELECT 
+    EXTRACT(MONTH FROM order_date) as month,
+    TO_CHAR(order_date, 'Day') as day_of_week,
+    COUNT(*) as order_count,
+    SUM(amount) as total_revenue,
+    AVG(amount) as avg_order_value,
+    -- Compare to overall averages
+    COUNT(*) * 100.0 / SUM(COUNT(*)) OVER () as pct_of_total_orders,
+    SUM(amount) / SUM(SUM(amount)) OVER () * 100 as pct_of_total_revenue
+FROM orders
+WHERE order_date >= CURRENT_DATE - INTERVAL '2 years'
+GROUP BY 
+    EXTRACT(MONTH FROM order_date),
+    EXTRACT(DOW FROM order_date),
+    TO_CHAR(order_date, 'Day')
+ORDER BY month, EXTRACT(DOW FROM order_date);
+
+-- Year-over-year comparison with seasonal adjustment
+WITH monthly_sales AS (
+    SELECT 
+        EXTRACT(YEAR FROM order_date) as year,
+        EXTRACT(MONTH FROM order_date) as month,
+        SUM(amount) as monthly_revenue
+    FROM orders
+    GROUP BY EXTRACT(YEAR FROM order_date), EXTRACT(MONTH FROM order_date)
+)
+SELECT 
+    year,
+    month,
+    monthly_revenue,
+    LAG(monthly_revenue, 12) OVER (ORDER BY year, month) as same_month_prev_year,
+    (monthly_revenue - LAG(monthly_revenue, 12) OVER (ORDER BY year, month)) /
+    LAG(monthly_revenue, 12) OVER (ORDER BY year, month) * 100 as yoy_growth_rate,
+    -- 12-month rolling average
+    AVG(monthly_revenue) OVER (
+        ORDER BY year, month 
+        ROWS BETWEEN 11 PRECEDING AND CURRENT ROW
+    ) as rolling_12_month_avg
+FROM monthly_sales
+ORDER BY year, month;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Optimization -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">⚡ Query Performance Optimization</h2>
+      
+      <div style="background:#f8fafc;padding:2rem;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:2rem;">
+        <h3 style="color:#1e293b;margin-bottom:1.5rem;">Performance Optimization Strategies</h3>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:2rem;">
+          <!-- Indexing Strategies -->
+          <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+            <h4 style="color:#dc2626;margin-bottom:1rem;">🚀 Indexing Strategies</h4>
+            <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+              <pre style="margin:0;color:#374151;"><code>-- Composite indexes for multi-column filters
+CREATE INDEX idx_orders_customer_date 
+ON orders (customer_id, order_date);
+
+-- Partial indexes for filtered queries
+CREATE INDEX idx_active_customers 
+ON customers (last_purchase_date) 
+WHERE status = 'ACTIVE';
+
+-- Expression indexes for computed columns
+CREATE INDEX idx_customer_full_name 
+ON customers (LOWER(first_name || ' ' || last_name));</code></pre>
+            </div>
+            <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+              <li>Create composite indexes for multi-column queries</li>
+              <li>Use partial indexes for frequently filtered data</li>
+              <li>Consider covering indexes to avoid table lookups</li>
+            </ul>
+          </div>
+
+          <!-- Query Optimization -->
+          <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;">
+            <h4 style="color:#059669;margin-bottom:1rem;">⚙️ Query Structure</h4>
+            <div style="background:#f8fafc;padding:1rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;">
+              <pre style="margin:0;color:#374151;"><code>-- Use EXISTS instead of IN for subqueries
+SELECT customer_name 
+FROM customers c
+WHERE EXISTS (
+    SELECT 1 FROM orders o 
+    WHERE o.customer_id = c.customer_id
+);
+
+-- LIMIT with ORDER BY requires index
+SELECT * FROM large_table 
+WHERE category = 'Electronics'
+ORDER BY created_date DESC 
+LIMIT 100;</code></pre>
+            </div>
+            <ul style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin:0;">
+              <li>Use EXISTS instead of IN for better performance</li>
+              <li>Add ORDER BY columns to indexes</li>
+              <li>Filter early, aggregate late</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background:#fef2f2;padding:1.5rem;border-radius:12px;border-left:4px solid #ef4444;margin-bottom:2rem;">
+          <h4 style="color:#dc2626;margin-bottom:1rem;">Common Performance Pitfalls</h4>
+          <ul style="color:#dc2626;font-size:0.9rem;line-height:1.6;margin:0;">
+            <li><strong>SELECT *:</strong> Always specify only needed columns</li>
+            <li><strong>Non-sargable conditions:</strong> Avoid functions in WHERE clauses</li>
+            <li><strong>Cartesian products:</strong> Always include proper JOIN conditions</li>
+            <li><strong>Subquery optimization:</strong> Consider CTEs or window functions instead</li>
+            <li><strong>Data type mismatches:</strong> Ensure proper type casting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-World Example -->
+    <section style="margin-bottom:4rem;">
+      <h2 style="color:#1e293b;font-size:2rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🏢 Complete Real-World Analysis</h2>
+      
+      <div style="background:#f8fafc;padding:2rem;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:2rem;">
+        <h3 style="color:#1e293b;margin-bottom:1.5rem;">E-commerce Performance Dashboard Query</h3>
+        <div style="background:#ffffff;padding:1.5rem;border-radius:8px;font-family:monospace;font-size:0.9rem;margin-bottom:1rem;overflow-x:auto;">
+          <pre style="margin:0;color:#374151;"><code>WITH base_metrics AS (
+    -- Calculate core metrics per customer per month
+    SELECT 
+        c.customer_id,
+        c.customer_name,
+        c.registration_date,
+        DATE_TRUNC('month', o.order_date) as order_month,
+        COUNT(DISTINCT o.order_id) as monthly_orders,
+        SUM(oi.quantity * oi.unit_price) as monthly_revenue,
+        COUNT(DISTINCT oi.product_id) as unique_products,
+        AVG(oi.quantity * oi.unit_price) as avg_order_value
+    FROM customers c
+    INNER JOIN orders o ON c.customer_id = o.customer_id
+    INNER JOIN order_items oi ON o.order_id = oi.order_id
+    WHERE o.order_date >= CURRENT_DATE - INTERVAL '12 months'
+    GROUP BY c.customer_id, c.customer_name, c.registration_date, 
+             DATE_TRUNC('month', o.order_date)
+),
+customer_lifecycle AS (
+    -- Add customer lifecycle metrics
+    SELECT 
+        *,
+        -- Customer age in months
+        EXTRACT(EPOCH FROM (order_month - DATE_TRUNC('month', registration_date))) / 2628000 as customer_age_months,
+        
+        -- Running totals per customer
+        SUM(monthly_revenue) OVER (
+            PARTITION BY customer_id 
+            ORDER BY order_month
+        ) as cumulative_revenue,
+        
+        -- Customer velocity (orders per month since registration)
+        SUM(monthly_orders) OVER (
+            PARTITION BY customer_id 
+            ORDER BY order_month
+        ) / NULLIF(
+            EXTRACT(EPOCH FROM (order_month - DATE_TRUNC('month', registration_date))) / 2628000 + 1,
+            0
+        ) as orders_per_month_avg,
+        
+        -- Time since last order
+        LAG(order_month) OVER (
+            PARTITION BY customer_id 
+            ORDER BY order_month
+        ) as prev_order_month
+        
+    FROM base_metrics
+),
+customer_segments AS (
+    -- Segment customers based on behavior
+    SELECT 
+        *,
+        CASE 
+            WHEN cumulative_revenue >= 1000 AND orders_per_month_avg >= 2 THEN 'VIP'
+            WHEN cumulative_revenue >= 500 OR orders_per_month_avg >= 1 THEN 'High Value'
+            WHEN customer_age_months <= 3 THEN 'New Customer'
+            WHEN EXTRACT(EPOCH FROM (CURRENT_DATE - order_month)) / 2628000 > 3 THEN 'At Risk'
+            ELSE 'Regular'
+        END as customer_segment,
+        
+        -- RFM-like scoring
+        NTILE(5) OVER (ORDER BY monthly_revenue DESC) as revenue_quintile,
+        NTILE(5) OVER (ORDER BY monthly_orders DESC) as frequency_quintile,
+        NTILE(5) OVER (ORDER BY order_month DESC) as recency_quintile
+        
+    FROM customer_lifecycle
+),
+final_dashboard AS (
+    SELECT 
+        order_month,
+        customer_segment,
+        
+        -- Count metrics
+        COUNT(DISTINCT customer_id) as active_customers,
+        SUM(monthly_orders) as total_orders,
+        
+        -- Revenue metrics
+        SUM(monthly_revenue) as total_revenue,
+        AVG(monthly_revenue) as avg_revenue_per_customer,
+        SUM(monthly_revenue) / SUM(monthly_orders) as avg_order_value,
+        
+        -- Growth metrics
+        SUM(monthly_revenue) - LAG(SUM(monthly_revenue)) OVER (
+            PARTITION BY customer_segment 
+            ORDER BY order_month
+        ) as revenue_growth,
+        
+        (SUM(monthly_revenue) - LAG(SUM(monthly_revenue)) OVER (
+            PARTITION BY customer_segment 
+            ORDER BY order_month
+        )) / NULLIF(LAG(SUM(monthly_revenue)) OVER (
+            PARTITION BY customer_segment 
+            ORDER BY order_month
+        ), 0) * 100 as revenue_growth_pct,
+        
+        -- Customer health metrics
+        AVG(orders_per_month_avg) as avg_purchase_frequency,
+        COUNT(CASE WHEN customer_age_months <= 1 THEN 1 END) as new_customers,
+        COUNT(CASE WHEN EXTRACT(EPOCH FROM (CURRENT_DATE - order_month)) / 2628000 > 2 THEN 1 END) as at_risk_customers
+        
+    FROM customer_segments
+    GROUP BY order_month, customer_segment
+)
+SELECT 
+    order_month,
+    customer_segment,
+    active_customers,
+    total_orders,
+    total_revenue,
+    avg_revenue_per_customer,
+    avg_order_value,
+    revenue_growth_pct,
+    avg_purchase_frequency,
+    new_customers,
+    at_risk_customers,
+    
+    -- Additional KPIs
+    total_revenue / SUM(total_revenue) OVER (PARTITION BY order_month) * 100 as segment_revenue_share,
+    active_customers / SUM(active_customers) OVER (PARTITION BY order_month) * 100 as segment_customer_share
+    
+FROM final_dashboard
+ORDER BY order_month DESC, total_revenue DESC;
+</code></pre>
+        </div>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem;">
+          <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);padding:1.5rem;border-radius:8px;border:1px solid #a7f3d0;">
+            <h5 style="color:#059669;margin-bottom:0.5rem;">What This Query Does</h5>
+            <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">Creates a comprehensive customer dashboard with segmentation, lifecycle metrics, and growth analysis</p>
+          </div>
+          <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:1.5rem;border-radius:8px;border:1px solid #93c5fd;">
+            <h5 style="color:#1d4ed8;margin-bottom:0.5rem;">Advanced Techniques Used</h5>
+            <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">CTEs, window functions, NTILE for segmentation, LAG for growth calculations</p>
+          </div>
+          <div style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);padding:1.5rem;border-radius:8px;border:1px solid #d8b4fe;">
+            <h5 style="color:#7c3aed;margin-bottom:0.5rem;">Business Value</h5>
+            <p style="color:#374151;font-size:0.9rem;margin:0;line-height:1.6;">Identifies customer segments, tracks health metrics, and enables data-driven retention strategies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section style="background:linear-gradient(135deg,#1e293b,#334155);color:#ffffff;padding:3rem 2rem;border-radius:20px;text-align:center;margin-bottom:3rem;">
+      <h2 style="color:#ffffff;font-size:2rem;margin-bottom:1.5rem;">🎯 Master Advanced SQL Techniques</h2>
+      <p style="color:#cbd5e1;font-size:1.1rem;line-height:1.7;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;">
+        These advanced SQL techniques will transform your data analysis capabilities. Practice with real datasets to build expertise and confidence in complex analytical scenarios.
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:2rem 0;max-width:600px;margin-left:auto;margin-right:auto;">
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🔄</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Practice Regularly</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Work with different datasets and scenarios</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">📊</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Build Dashboards</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Create comprehensive analytical queries</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">⚡</div>
+          <h4 style="color:#ffffff;margin-bottom:0.5rem;">Optimize Performance</h4>
+          <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">Focus on query efficiency and scalability</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+        <a href="/courses/data-analyst.html" style="background:#10b981;color:#ffffff;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;">Data Analyst Course</a>
+        <a href="/courses/data-science-new.html" style="background:transparent;color:#ffffff;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;border:2px solid #ffffff;">Data Science Program</a>
+      </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <div style="text-align:center;margin-bottom:2rem;">
+      <a href="/blog/index.html" style="color:#10b981;text-decoration:none;font-weight:500;">← Back to Blog</a>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div><h4>ThinkoraLearn</h4><p>Practical training with real projects and mentorship.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="/courses/index.html">Courses</a></li><li><a href="/about.html">About</a></li><li><a href="/faq.html">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:hello@thinkoralearn.com">hello@thinkoralearn.com</a></li><li><a href="#" id="openConsultFooter">Free Counselling</a></li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> ThinkoraLearn</div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
