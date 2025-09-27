@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Data Science — Full Syllabus | ThinkoraLearn</title>
+  <style>
+    :root {
+      --brand: #2563eb;
+      --brand2: #22d3ee;
+      --muted: #475569;
+      --accent: #34d399;
+      --header-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #0f172a;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .brochure-header {
+      background: var(--header-gradient);
+      color: #fff;
+      padding: 3rem 0 2.5rem 0;
+      border-radius: 0 0 3rem 3rem;
+      box-shadow: 0 15px 60px rgba(102, 126, 234, 0.4);
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+    .brochure-header .icon {
+      display: inline-block;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(2,6,23,0.10);
+      padding: 0.7rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .card {
+      max-width: 900px;
+      margin: -3.5rem auto 2rem auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 3rem 2.5rem 2.5rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+    .course-overview {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    }
+    .course-overview h2 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .module {
+      margin-bottom: 2.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+      transition: all 0.3s ease;
+    }
+    .module:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+    }
+    .module-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .mod-icon {
+      font-size: 1.2rem;
+    }
+    .module ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .module li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .module li:last-child {
+      border-bottom: none;
+    }
+    .module li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    .capstone-accent {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 0.5rem 0 0.75rem 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      background: #fff;
+      color: var(--brand);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn:hover { transform: translateY(-1px); background: #f8fafc; }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .contact-info {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      margin-top: 3rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(240, 147, 251, 0.3);
+    }
+    .contact-info h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    @media (max-width: 600px) {
+      .card { padding: 1.2rem 0.5rem; }
+      .brochure-header { padding: 1.5rem 0 1.2rem 0; }
+    }
+    @media print { 
+      body { 
+        background: #fff !important;
+        background-image: none !important;
+      } 
+      .actions { display: none } 
+      .card {
+        background: #fff !important;
+        backdrop-filter: none !important;
+      }
+      .module {
+        background: #f8fafc !important;
+        backdrop-filter: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="brochure-header">
+    <span class="icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <ellipse cx="24" cy="24" rx="16" ry="12" fill="#60a5fa"/>
+        <ellipse cx="24" cy="24" rx="10" ry="7" fill="#dbeafe"/>
+        <circle cx="16" cy="24" r="2" fill="#2563eb"/>
+        <circle cx="24" cy="18" r="2" fill="#2563eb"/>
+        <circle cx="32" cy="24" r="2" fill="#2563eb"/>
+        <circle cx="24" cy="30" r="2" fill="#2563eb"/>
+        <line x1="16" y1="24" x2="24" y2="18" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="24" y1="18" x2="32" y2="24" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="32" y1="24" x2="24" y2="30" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="24" y1="30" x2="16" y2="24" stroke="#2563eb" stroke-width="1.5"/>
+      </svg>
+    </span>
+    <h1 style="color:#fff;">Data Science — Full Syllabus</h1>
+    <p class="meta" style="color:#e0e7ef;">Duration: 12–16 weeks · Mode: Live & Self-paced</p>
+    <div class="actions">
+      <a class="btn" href="/assets/brochures/data-science-syllabus.html" target="_blank">Open Brochure (HTML)</a>
+      <a class="btn btn-outline" href="#print" onclick="window.print();return false;">Print / Save as PDF</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="course-overview">
+      <h2>Become a Job-Ready Data Scientist</h2>
+      <p>Master statistics, machine learning, data engineering, model deployment, and storytelling with data through hands-on projects and industry mentorship.</p>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">📊</span> Module 1: Statistics & Probability Foundations</h2>
+      <ul>
+        <li>Descriptive Statistics: Mean, Median, Mode, Variance, Standard Deviation</li>
+        <li>Probability Distributions: Normal, Binomial, Poisson</li>
+        <li>Hypothesis Testing: T-tests, Chi-square tests, ANOVA</li>
+        <li>Confidence Intervals and Statistical Significance</li>
+        <li>Bayesian Statistics Fundamentals</li>
+        <li>Correlation vs Causation Analysis</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">🐍</span> Module 2: Python Programming for Data Science</h2>
+      <ul>
+        <li>Python Fundamentals: Data Types, Control Structures</li>
+        <li>NumPy: Arrays, Mathematical Operations, Broadcasting</li>
+        <li>Pandas: DataFrames, Data Manipulation, Merging, Grouping</li>
+        <li>Data Cleaning: Missing Values, Outliers, Data Types</li>
+        <li>Exploratory Data Analysis (EDA) Techniques</li>
+        <li>Feature Engineering and Selection</li>
+        <li>Working with APIs and Web Scraping</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">📈</span> Module 3: Data Visualization & Storytelling</h2>
+      <ul>
+        <li>Matplotlib: Basic Plots, Customization, Subplots</li>
+        <li>Seaborn: Statistical Visualizations, Heatmaps</li>
+        <li>Plotly: Interactive Charts, Dashboards</li>
+        <li>Data Storytelling Principles</li>
+        <li>Creating Executive Dashboards</li>
+        <li>Business Intelligence Reporting</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">🧠</span> Module 4: Machine Learning Fundamentals</h2>
+      <ul>
+        <li>Supervised Learning: Linear & Logistic Regression</li>
+        <li>Classification: Decision Trees, Random Forest, SVM</li>
+        <li>Model Evaluation: Accuracy, Precision, Recall, F1-Score</li>
+        <li>Cross-Validation and Hyperparameter Tuning</li>
+        <li>Unsupervised Learning: K-Means, Hierarchical Clustering</li>
+        <li>Dimensionality Reduction: PCA, t-SNE</li>
+        <li>Scikit-learn Library Deep Dive</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">⚡</span> Module 5: Advanced Machine Learning</h2>
+      <ul>
+        <li>Ensemble Methods: Bagging, Boosting, Stacking</li>
+        <li>Gradient Boosting: XGBoost, LightGBM</li>
+        <li>Neural Networks Introduction</li>
+        <li>Deep Learning with TensorFlow/Keras</li>
+        <li>Natural Language Processing Basics</li>
+        <li>Time Series Analysis and Forecasting</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">🗄️</span> Module 6: Data Engineering Essentials</h2>
+      <ul>
+        <li>SQL: Advanced Queries, Joins, Window Functions</li>
+        <li>Database Design and Normalization</li>
+        <li>ETL Processes and Data Pipelines</li>
+        <li>Working with Big Data: Spark Basics</li>
+        <li>Cloud Platforms: AWS, Google Cloud, Azure</li>
+        <li>Data Warehousing Concepts</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">☁️</span> Module 7: Model Deployment & MLOps</h2>
+      <ul>
+        <li>Model Serialization: Pickle, Joblib</li>
+        <li>REST API Development with Flask/FastAPI</li>
+        <li>Containerization with Docker</li>
+        <li>Cloud Deployment: AWS SageMaker, Google Cloud ML</li>
+        <li>Model Monitoring and Versioning</li>
+        <li>CI/CD for Machine Learning Projects</li>
+        <li>A/B Testing for Models</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h2 class="module-title"><span class="mod-icon">🏆</span> Module 8: Capstone Project & Portfolio</h2>
+      <div class="capstone-accent">End-to-end project combining data extraction, cleaning, modeling, and deployment to solve a real-world business problem.</div>
+      <ul>
+        <li>End-to-End Data Science Project</li>
+        <li>Problem Definition and Business Understanding</li>
+        <li>Data Collection and Cleaning</li>
+        <li>Exploratory Analysis and Feature Engineering</li>
+        <li>Model Building, Evaluation, and Deployment</li>
+        <li>Project Documentation and Presentation</li>
+        <li>GitHub Portfolio Development</li>
+        <li>Resume Building for Data Science Roles</li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Ready to Start Your Data Science Journey?</h3>
+      <p>Contact us for enrollment details and course scheduling.</p>
+      <p style="margin-top: 1rem; font-weight: 600; color: #2563eb;">
+        Visit: thinkoralearn.com | Email: hello@thinkoralearn.com
+      </p>
+    </div>
+  </div>
+</body>
+</html>
